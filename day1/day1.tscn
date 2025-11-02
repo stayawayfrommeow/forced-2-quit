@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://tia2tnddrgd6" path="res://day1/day_1.gd" id="1_7htkw"]
 [ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_48ukd"]
 [ext_resource type="Texture2D" uid="uid://c70rfemuckpsl" path="res://day1/sprt_lvl_layout.png" id="2_wxk1o"]
-[ext_resource type="PackedScene" uid="uid://dsrb3848nvwuy" path="res://interactables/interactable.tscn" id="3_wxk1o"]
+[ext_resource type="PackedScene" uid="uid://v5wfel75jq1h" path="res://interactables/interactable.tscn" id="3_wxk1o"]
 [ext_resource type="PackedScene" uid="uid://ddtvttl6lwx85" path="res://gui/gui.tscn" id="5_jxyad"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7htkw"]
@@ -15,7 +15,7 @@ script = ExtResource("1_7htkw")
 [node name="Player" parent="." instance=ExtResource("1_48ukd")]
 z_index = 5
 position = Vector2(217, 206.00002)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.1, 0.1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -29.333336)

@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=3 uid="uid://ttrhj3a2mbql"]
+
+[ext_resource type="Script" uid="uid://bhyaapsgugp5c" path="res://interactables/comic/comic.gd" id="1_3rp6x"]
+[ext_resource type="Texture2D" uid="uid://bvxaesl0y7c3a" path="res://interactables/comic/placeholder.png" id="2_21c4k"]
+
+[node name="Comic" type="CanvasLayer"]
+layer = 6
+script = ExtResource("1_3rp6x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 0.8235294)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="layout1" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Panel1" type="Panel" parent="layout1"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.45000002
+anchor_bottom = 0.47400004
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 39.599976
+offset_bottom = 29.847961
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="layout1/Panel1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.75
+offset_top = -120.5
+offset_right = 178.75
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="layout1/Panel1/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_21c4k")
+
+[node name="Panel2" type="Panel" parent="layout1"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -558.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = 337.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="layout1/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.75
+offset_top = -120.5
+offset_right = 178.75
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="layout1/Panel2/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_21c4k")
+
+[node name="Panel3" type="Panel" parent="layout1"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -257.0
+offset_top = -290.0
+offset_right = 257.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="layout1/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -178.75
+offset_top = -120.5
+offset_right = 178.75
+offset_bottom = 120.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="layout1/Panel3/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_21c4k")
+
+[connection signal="comic_start" from="." to="." method="_on_comic_start"]

@@ -8,9 +8,12 @@ extends Node2D
 @onready var obj_sprt = $AnimatedSprite2D
 @onready var killtimer = $kill_timer
 @onready var activate_timer = $activate_timer
+@onready var comic = $Comic
+
 
 @export var stress = 15
 @export var money = 100
+@export var panel_sprts: Array[CompressedTexture2D]
 
 var DURATION = 3
 
@@ -27,21 +30,30 @@ func _ready():
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
 	gj_popup.visible = false
-	obj_sprt.modulate = Color.GREEN   
+	#комикс не видно
+	comic.visible = false
 	
-	pass # Replace with function body.a
+	obj_sprt.modulate = Color.GREEN  
+	
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
+#что происходит на интеракт
 func _input(event: InputEvent): 
+
 	if (activated and player_near and event.is_action_pressed("interact")):
 		interact_popup.visible = false
 		if (stress):
 			Global.stress = event_stress
 			Global.bank = event_bank
+			comic.visible = true
+			comic.emit_signal('comic_start')
 		deactivate()
+
 	pass
 	
 		
@@ -96,4 +108,9 @@ func _on_kill_timer_timeout():
 func _on_activate_timer_timeout() -> void:
 	Global.stress = event_penalty
 	deactivate()
-	pass # Replace with function body.
+
+func _on_comic_comic_ended():
+	deactivate()
+	#добавить комик ресет
+	#comic.reset = false
+	pass
