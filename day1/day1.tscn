@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://brqw1yirhnfn1"]
+
+[ext_resource type="Script" uid="uid://tia2tnddrgd6" path="res://day1/day_1.gd" id="1_7htkw"]
+[ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_48ukd"]
+[ext_resource type="Texture2D" uid="uid://c70rfemuckpsl" path="res://day1/sprt_lvl_layout.png" id="2_wxk1o"]
+[ext_resource type="PackedScene" uid="uid://dsrb3848nvwuy" path="res://interactables/interactable.tscn" id="3_wxk1o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7htkw"]
+font_size = 300
+
+[node name="Day1" type="Node2D"]
+script = ExtResource("1_7htkw")
+
+[node name="Player" parent="." instance=ExtResource("1_48ukd")]
+z_index = 5
+position = Vector2(217, 206.00002)
+scale = Vector2(1.5, 1.5)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -29.333336)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(207, 161)
+texture = ExtResource("2_wxk1o")
+metadata/_edit_lock_ = true
+
+[node name="Interactable" parent="." instance=ExtResource("3_wxk1o")]
+position = Vector2(-52, 237)
+
+[node name="Interactable2" parent="." instance=ExtResource("3_wxk1o")]
+position = Vector2(-714, 246)
+
+[node name="Interactable3" parent="." instance=ExtResource("3_wxk1o")]
+position = Vector2(451, 202)
+
+[node name="win_screen_placeholder" type="Label" parent="."]
+offset_left = -42.0
+offset_top = -72.0
+offset_right = 558.0
+offset_bottom = 528.0
+text = "win"
+label_settings = SubResource("LabelSettings_7htkw")
+
+[connection signal="tree_exited" from="Interactable" to="." method="_on_interactable_tree_exited"]
+[connection signal="tree_exited" from="Interactable2" to="." method="_on_interactable_2_tree_exited"]
+[connection signal="tree_exited" from="Interactable3" to="." method="_on_interactable_3_tree_exited"]
