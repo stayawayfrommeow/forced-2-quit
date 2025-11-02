@@ -8,9 +8,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	quest1.visible = true
-	quest2.visible = false
-	quest3.visible = false
 	win_screen.visible = false
 	
 	pass # Replace with function body.
@@ -20,23 +17,23 @@ func _ready():
 func _process(delta):
 	pass
 
-#quest 1 completed
-func _on_interactable_tree_exited():
-	quest2.visible = true
-	quest3.visible = false
-	pass # Replace with function body.
-
-#quest 2 completed
-func _on_interactable_2_tree_exited():
-	quest3.visible = true
-
-	
-	pass # Replace with function body.
-
-#quest 3 completed
-func _on_interactable_3_tree_exited():
-	win_screen.visible = true
-
-	
-	Global.endDay(1)
-	pass # Replace with function body.
+##quest 1 completed
+#func _on_interactable_tree_exited():
+	#quest2.visible = true
+	#quest3.visible = false
+	#pass # Replace with function body.
+#
+##quest 2 completed
+#func _on_interactable_2_tree_exited():
+	#quest3.visible = true
+#
+	#
+	#pass # Replace with function body.
+#
+##quest 3 completed
+#func _on_interactable_3_tree_exited():
+	#win_screen.visible = true
+#
+	#
+	#Global.end_current_day()
+	#pass # Replace with function body.

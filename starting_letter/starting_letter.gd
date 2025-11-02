@@ -1,5 +1,5 @@
 extends Node2D
-
+var day1scn = preload("res://day1/day1.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	Global.goToDay(1)
+	get_tree().change_scene_to_packed(day1scn)
 	pass # Replace with function body.

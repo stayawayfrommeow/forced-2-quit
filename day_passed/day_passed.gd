@@ -12,5 +12,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://day1/day1.tscn")
+	Global.start_next_day()
 	pass # Replace with function body.

@@ -1,52 +1,38 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsrb3848nvwuy"]
+[gd_scene load_steps=12 format=3 uid="uid://dsrb3848nvwuy"]
 
 [ext_resource type="Script" uid="uid://n51lk83yitjg" path="res://interactables/interactable.gd" id="1_7t3he"]
 [ext_resource type="Texture2D" uid="uid://chx3u7ssyuop5" path="res://player_character/sprt_placeholder.png" id="1_kdhm5"]
+[ext_resource type="Texture2D" uid="uid://ba21rj5cug2jp" path="res://interactables/1.png" id="3_lbwal"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7t3he"]
 atlas = ExtResource("1_kdhm5")
 region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkvvg"]
+atlas = ExtResource("3_lbwal")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lbwal"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7t3he")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fkvvg")
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdhm5"]
 size = Vector2(116, 114.5)
-
-[sub_resource type="Animation" id="Animation_7t3he"]
-resource_name = "popup_enter"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0.3, 0.3), Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_lbwal"]
 length = 0.001
@@ -73,6 +59,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7t3he"]
+resource_name = "popup_enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_fkvvg"]
@@ -153,7 +166,10 @@ text = "gj!"
 
 [node name="kill_timer" type="Timer" parent="."]
 
+[node name="activate_timer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="animation_finished" from="Interact_popup/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="kill_timer" to="." method="_on_kill_timer_timeout"]
+[connection signal="timeout" from="activate_timer" to="." method="_on_activate_timer_timeout"]
