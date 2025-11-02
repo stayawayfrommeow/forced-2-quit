@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddtvttl6lwx85"]
+
+[ext_resource type="PackedScene" uid="uid://cnqxjfj636es5" path="res://gui/stressbar/stressbar.tscn" id="1_yw5qc"]
+[ext_resource type="PackedScene" uid="uid://dalinajj3vicw" path="res://gui/timer/timer.tscn" id="2_ioifv"]
+[ext_resource type="PackedScene" uid="uid://bqysnnsh10kqh" path="res://gui/bank/bank.tscn" id="3_q46mf"]
+
+[node name="Gui" type="CanvasLayer"]
+
+[node name="Stressbar" parent="." instance=ExtResource("1_yw5qc")]
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 27.0
+offset_bottom = 21.0
+
+[node name="Timer" parent="." instance=ExtResource("2_ioifv")]
+offset_left = 1086.0
+offset_top = 16.0
+offset_right = 1086.0
+offset_bottom = 16.0
+
+[node name="Bank" parent="." instance=ExtResource("3_q46mf")]
+offset_left = 1041.0
+offset_top = 578.0
+offset_right = -29.0
+offset_bottom = -24.0

@@ -8,6 +8,11 @@ extends Node2D
 @onready var obj_sprt = $AnimatedSprite2D
 @onready var killtimer = $kill_timer
 
+@export var stress = 15
+@export var money = 100
+
+var DURATION = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#обект видно
@@ -30,6 +35,8 @@ func _input(event: InputEvent):
 		obj_sprt.visible = false
 		interact_popup.visible = false
 		killtimer.start(1)
+		Global.stress = stress
+		
 	pass
 
 func _on_area_2d_body_entered(body):

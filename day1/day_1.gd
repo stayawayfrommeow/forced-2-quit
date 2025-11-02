@@ -29,10 +29,14 @@ func _on_interactable_tree_exited():
 #quest 2 completed
 func _on_interactable_2_tree_exited():
 	quest3.visible = true
+
+	
 	pass # Replace with function body.
 
 #quest 3 completed
 func _on_interactable_3_tree_exited():
 	win_screen.visible = true
-	get_tree().change_scene_to_file("res://day_passed/day_passed.tscn")
+
+	
+	Global.endDay(1)
 	pass # Replace with function body.
