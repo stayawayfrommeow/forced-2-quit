@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
-const SPEED = 150.0
-const JUMP_VELOCITY = -400.0
+@onready var animplayer = $AnimationPlayer
+const SPEED = 400.0
+
+
 
 
 func _physics_process(delta):
@@ -12,9 +14,13 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		anim.play("walk")
+		anim.scale.x = -direction * 1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.play('idle')
 	
 
 	move_and_slide()
+	
+func do_backflip():
+	animplayer.play('backflip')

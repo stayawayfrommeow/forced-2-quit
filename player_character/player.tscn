@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://co5yrplpv2qo6"]
+[gd_scene load_steps=97 format=3 uid="uid://co5yrplpv2qo6"]
 
 [ext_resource type="Script" uid="uid://cn8cgscmcovvl" path="res://player_character/player.gd" id="1_4wxsw"]
 [ext_resource type="Texture2D" uid="uid://irv806yerv1e" path="res://player_character/Hero_Sprite_Walk.png" id="2_4wxsw"]
@@ -640,19 +640,84 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5ann"]
-radius = 18.0
-height = 46.0
+radius = 217.0
+height = 1128.0
+
+[sub_resource type="Animation" id="Animation_fay0u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.00966455]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4wxsw"]
+resource_name = "backflip"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.00966455, 6.283185307179586]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1, 0), Vector2(-1, -400), Vector2(-1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n5ann"]
+_data = {
+&"RESET": SubResource("Animation_fay0u"),
+&"backflip": SubResource("Animation_4wxsw")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_4wxsw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.0000305, -1.0000076)
+position = Vector2(-1, 0)
 rotation = 0.00966455
 sprite_frames = SubResource("SpriteFrames_fay0u")
 animation = &"walk"
-frame_progress = 0.6793692
 speed_scale = 0.505
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_n5ann")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_n5ann")
+}

@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://ctp8we7ha5ori"]
+
+[ext_resource type="Texture2D" uid="uid://bdvdle8gllkrk" path="res://level/items/доска объявлений активная.png" id="1_6o06k"]
+[ext_resource type="Texture2D" uid="uid://chx3u7ssyuop5" path="res://player_character/sprt_placeholder.png" id="3_33w4y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y7fv"]
+atlas = ExtResource("1_6o06k")
+region = Rect2(0, 0, 1271, 805)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t3he"]
+atlas = ExtResource("3_33w4y")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y7fv")
+}],
+"loop": true,
+"name": &"board",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t3he")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

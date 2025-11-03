@@ -9,9 +9,9 @@ var letter_scn = preload("res://starting_letter/starting_letter.tscn")
 var stressbar = "res://stressbar/stressbar.tscn"
 
 const event_instanses = {
-	"print_docs": {
-		"id": "print_docs",
-		"name": "Распечатать документы",
+	"board": {
+		"id": "board",
+		"name": "Посмотреть на доску",
 		"images": [
 			"res://assets/comics/comics_1/1.png",
 			"res://assets/comics/comics_1/2.jpg",
@@ -64,7 +64,7 @@ const events := [
 			"penalty": 20,
 			"name": "Распечатать документы",
 			"eventTimes": [3, 9, 14, 24],
-			"instanse": event_instanses["print_docs"]
+			"instanse": event_instanses["board"]
 		},
 	],
 	[
@@ -76,7 +76,7 @@ const events := [
 			"penalty": 20,
 			"name": "Распечатать документы",
 			"eventTimes": [6, 12, 18, 24],
-			"instanse": event_instanses["print_docs"]
+			"instanse": event_instanses["board"]
 		},
 		{
 			"group": "cooler",
@@ -162,7 +162,7 @@ func generate_events(time_tick: int):
 			#print("Активация", i)
 
 func start_next_day():
-	var nodes = get_tree().get_nodes_in_group("Interactables")
+	var nodes = get_tree().get_nodes_in_group("items")
 	for i in range(nodes.size()):
 		var val = nodes[i] 
 		if (val.activated):
