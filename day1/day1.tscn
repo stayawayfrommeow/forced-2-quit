@@ -31,7 +31,7 @@ metadata/_edit_lock_ = true
 position = Vector2(-55, 246)
 
 [node name="Interactable2" parent="." groups=["Interactables", "printer"] instance=ExtResource("3_wxk1o")]
-position = Vector2(-725, 243)
+position = Vector2(219, 154)
 
 [node name="Interactable3" parent="." groups=["Interactables", "elevator"] instance=ExtResource("3_wxk1o")]
 position = Vector2(65, 202)

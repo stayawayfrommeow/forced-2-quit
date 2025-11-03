@@ -17,6 +17,10 @@ signal comic_start
 var TIME_BETWEEN_PANELS = 1
 var NUMBER_OF_PANELS = 3
 
+func _ready():
+	print("ready")
+	pass
+
 func _on_comic_start():
 	p1.visible = true
 	timer.start(1)

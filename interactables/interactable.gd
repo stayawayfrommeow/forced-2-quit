@@ -6,9 +6,7 @@ extends Node2D
 @onready var animations = $Interact_popup/AnimationPlayer
 @onready var player_near = false
 @onready var obj_sprt = $AnimatedSprite2D
-@onready var killtimer = $kill_timer
 @onready var activate_timer = $activate_timer
-@onready var comic = $Comic
 
 
 @export var stress = 15
@@ -22,6 +20,9 @@ var DURATION = 3
 var event_penalty = 0
 var event_bank = 0
 var event_stress = 0
+var event_images = []
+var event_sound = ""
+var event_id = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +32,6 @@ func _ready():
 	interact_popup.visible = false
 	gj_popup.visible = false
 	#комикс не видно
-	comic.visible = false
 	
 	obj_sprt.modulate = Color.GREEN  
 	
@@ -50,19 +50,28 @@ func _input(event: InputEvent):
 		if (stress):
 			Global.stress = event_stress
 			Global.bank = event_bank
-			comic.visible = true
-			comic.emit_signal('comic_start')
+			
+			if (event_images and event_sound and !Global.has_readed_comics(event_id)):
+				Spawner.show_slider(event_images, event_sound)
+				Global.add_readed_comics(event_id)
+			else:
+				print("Анимации")
+				# TODO Анимации
+			#comic.emit_signal('comic_start')
 		deactivate()
 
 	pass
-	
 		
-func activate(lifetime, penalty, stress, bank, name):
-	interact_popup.text = name
-	activate_timer.start(lifetime)
-	event_penalty = penalty
-	event_stress = stress
-	event_bank = bank
+func activate(event):
+	interact_popup.text = event.instanse.get("name",   "")
+	event_images = event.instanse.get("images", [])
+	event_sound = event.instanse.get("sound",   "")
+	event_id = event.instanse.get("id",   "")
+	
+	activate_timer.start(event.get("lifetime",  0))
+	event_penalty = event.get("penalty",   0)
+	event_stress = event.get("stress",   0)
+	event_bank = event.get("bank",   0)
 
 	activated = true
 	obj_sprt.modulate = Color.RED   
@@ -100,13 +109,9 @@ func _on_animation_player_animation_finished(anim_name):
 	pass # Replace with function body.
 
 
-func _on_kill_timer_timeout():
-	queue_free()
-	pass # Replace with function body.
-
-
-func _on_activate_timer_timeout() -> void:
+func _on_timer_timeout() -> void:
 	Global.stress = event_penalty
+	print("tut!")
 	deactivate()
 
 func _on_comic_comic_ended():

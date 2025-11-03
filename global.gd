@@ -8,6 +8,33 @@ var day1scn = preload("res://day1/day1.tscn")
 var letter_scn = preload("res://starting_letter/starting_letter.tscn")
 var stressbar = "res://stressbar/stressbar.tscn"
 
+const event_instanses = {
+	"print_docs": {
+		"id": "print_docs",
+		"name": "Распечатать документы",
+		"images": [
+			"res://assets/comics/comics_1/1.png",
+			"res://assets/comics/comics_1/2.jpg",
+			"res://assets/comics/comics_1/5.jpg",
+		],
+		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+	},
+	"drink": {
+		"id": "drink",
+		"name": "Попить воды",
+		"images": [
+			"res://assets/comics/comics_1/4.png",
+		],
+		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+	},
+	"nocomics": {
+		"id": "nocomics",
+		"name": "Без комикса",
+		"images": [
+		],
+	},
+}
+
 const events := [
 	[
 		{
@@ -16,28 +43,8 @@ const events := [
 			"stress": 5,
 			"bank": 50,
 			"penalty": 20,
-			"name": "Распечатать документы",
-			"eventTimes": [6, 12, 18, 24, 30, 36]
-		}
-	],
-	[
-				{
-			"group": "printer",
-			"lifetime": 5,
-			"stress": 5,
-			"bank": 50,
-			"penalty": 20,
-			"name": "Распечатать документы",
-			"eventTimes": [6, 12, 18, 24]
-		},
-		{
-			"group": "cooler",
-			"lifetime": 5,
-			"stress": 10,
-			"bank": 50,
-			"penalty": 20,
-			"name": "Попить воду",
-			"eventTimes": [3, 9, 15, 21]
+			"eventTimes": [6, 12, 18, 24, 30, 36],
+			"instanse": event_instanses["drink"]
 		},
 		{
 			"group": "elevator",
@@ -46,7 +53,50 @@ const events := [
 			"bank": 50,
 			"penalty": 20,
 			"name": "Погулять",
-			"eventTimes": [30, 36, 42]
+			"eventTimes": [1],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "printer",
+			"lifetime": 5,
+			"stress": 5,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Распечатать документы",
+			"eventTimes": [3, 9, 14, 24],
+			"instanse": event_instanses["print_docs"]
+		},
+	],
+	[
+		{
+			"group": "printer",
+			"lifetime": 5,
+			"stress": 5,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Распечатать документы",
+			"eventTimes": [6, 12, 18, 24],
+			"instanse": event_instanses["print_docs"]
+		},
+		{
+			"group": "cooler",
+			"lifetime": 5,
+			"stress": 10,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Попить воду",
+			"eventTimes": [3, 9, 15, 21],
+			"instanse": event_instanses["drink"]
+		},
+		{
+			"group": "elevator",
+			"lifetime": 5,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Погулять",
+			"eventTimes": [30, 36, 42],
+			"instanse": event_instanses["nocomics"]
 		}
 	],
 	[],
@@ -75,6 +125,13 @@ var MAX_STRESS = 100
 	get:
 		return bank
 
+var readed_comics: Array[String] = []
+
+func add_readed_comics(name: String):
+	readed_comics.push_back(name)
+	
+func has_readed_comics(name: String) -> bool:
+	return readed_comics.has(name)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -91,7 +148,7 @@ func generate_events(time_tick: int):
 			for i in range(nodes.size()):
 				var val = nodes[i] 
 				if (!val.activated):
-					val.activate(event.lifetime, event.penalty, event.stress, event.bank, event.name)
+					val.activate(event)
 					break;
 				
 		
