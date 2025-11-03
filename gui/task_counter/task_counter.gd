@@ -42,48 +42,47 @@ func upd_current_event(events) -> void:
 	var cam_rect := _get_camera_rect()
 
 	for t in events:
-		var pos = t.global_position
-		var is_left = pos.x < player.global_position.x
-		var in_camera := cam_rect.has_point(pos)
+		if is_instance_valid(t):
+			var pos = t.global_position
+			var is_left = pos.x < player.global_position.x
+			var in_camera := cam_rect.has_point(pos)
 
-		if is_left:
-			if in_camera:
-				left_in_view.append(t)
+			if is_left:
+				if in_camera:
+					left_in_view.append(t)
+				else:
+					left_out_view.append(t)
 			else:
-				left_out_view.append(t)
-		else:
-			if in_camera:
-				right_in_view.append(t)
-			else:
-				right_out_view.append(t)
+				if in_camera:
+					right_in_view.append(t)
+				else:
+					right_out_view.append(t)
 
-
-	if (side == ArrowSide.LEFT):
-		if (left_out_view.size() > 0):
-			if has_urgent_outside(left_out_view):
-				label2.text = "*"
+		if (side == ArrowSide.LEFT):
+			if (left_out_view.size() > 0):
+				if has_urgent_outside(left_out_view):
+					label2.text = "*"
+				else:
+					label2.text = ""
+				
+				self.visible = true
+				label.text = str(left_out_view.size())
 			else:
-				label2.text = ""
-			
-			self.visible = true
-			label.text = str(left_out_view.size())
+				self.visible = false
 		else:
-			self.visible = false
-	else:
-		if (right_out_view.size() > 0):
-			if has_urgent_outside(right_out_view):
-				label2.text = "*"
+			if (right_out_view.size() > 0):
+				if has_urgent_outside(right_out_view):
+					label2.text = "*"
+				else:
+					label2.text = ""
+				
+				self.visible = true
+				label.text = str(right_out_view.size())
 			else:
-				label2.text = ""
-			
-			self.visible = true
-			label.text = str(right_out_view.size())
-		else:
-			self.visible = false
+				self.visible = false
 
 	#print("L-in: %d, R-in: %d, L-out: %d, R-out: %d" %
 		  #[left_in_view.size(), right_in_view.size(), left_out_view.size(), right_out_view.size()])
-	# дальше работаем с четырьмя списками
 
 func has_urgent_outside(out_view) -> bool:
 	for item in out_view:
