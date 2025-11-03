@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @onready var anim = $AnimatedSprite2D
+@onready var animplayer = $AnimationPlayer
 const SPEED = 400.0
-const JUMP_VELOCITY = -400.0
+
+
 
 
 func _physics_process(delta):
@@ -19,3 +21,6 @@ func _physics_process(delta):
 	
 
 	move_and_slide()
+	
+func do_backflip():
+	animplayer.play('backflip')

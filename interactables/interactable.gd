@@ -56,7 +56,8 @@ func _input(event: InputEvent):
 			Global.stress = event_stress
 			Global.bank = event_bank
 			comic.visible = true
-			comic.emit_signal('comic_start')
+			%Player.do_backflip()
+			#comic.emit_signal('comic_start')
 		deactivate()
 
 	pass
