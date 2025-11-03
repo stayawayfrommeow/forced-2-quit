@@ -37,7 +37,6 @@ position = Vector2(-725, 243)
 position = Vector2(65, 202)
 
 [node name="win_screen_placeholder" type="Label" parent="."]
-visible = false
 offset_left = -45.0
 offset_top = -64.0
 offset_right = 555.0

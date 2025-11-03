@@ -14,6 +14,7 @@ extends Node2D
 @export var stress = 15
 @export var money = 100
 @export var panel_sprts: Array[CompressedTexture2D]
+@export var obj_name: String
 
 var DURATION = 3
 
@@ -25,15 +26,19 @@ var event_stress = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#обект видно
-	obj_sprt.visible = true
+	#обект не видно
+	obj_sprt.visible = false
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
 	gj_popup.visible = false
 	#комикс не видно
 	comic.visible = false
 	
-	obj_sprt.modulate = Color.GREEN  
+	#obj_sprt.modulate = Color.GREEN  
+
+	if obj_name == 'board':
+		obj_sprt.play("board")
+		
 	
 	pass # Replace with function body.
 
@@ -63,14 +68,16 @@ func activate(lifetime, penalty, stress, bank, name):
 	event_penalty = penalty
 	event_stress = stress
 	event_bank = bank
+	obj_sprt.visible = true
 
 	activated = true
-	obj_sprt.modulate = Color.RED   
+	#obj_sprt.modulate = Color.RED   
 	_update_popup()
 
 func deactivate(): 
 	activated = false
-	obj_sprt.modulate = Color.GREEN   
+	#obj_sprt.modulate = Color.GREEN
+	obj_sprt.visible = false
 	interact_popup.visible = false
 	activate_timer.stop()
 	

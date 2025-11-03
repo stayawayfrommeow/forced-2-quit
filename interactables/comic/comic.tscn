@@ -8,6 +8,7 @@ layer = 6
 script = ExtResource("1_3rp6x")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 1155.0
 offset_bottom = 651.0
 color = Color(0, 0, 0, 0.8235294)

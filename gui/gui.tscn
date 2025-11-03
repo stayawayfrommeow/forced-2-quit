@@ -1,17 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddtvttl6lwx85"]
+[gd_scene load_steps=6 format=3 uid="uid://ddtvttl6lwx85"]
 
 [ext_resource type="PackedScene" uid="uid://cnqxjfj636es5" path="res://gui/stressbar/stressbar.tscn" id="1_yw5qc"]
 [ext_resource type="PackedScene" uid="uid://dalinajj3vicw" path="res://gui/timer/timer.tscn" id="2_ioifv"]
 [ext_resource type="PackedScene" uid="uid://bqysnnsh10kqh" path="res://gui/bank/bank.tscn" id="3_q46mf"]
 [ext_resource type="PackedScene" uid="uid://b12vsoltw4wp1" path="res://gui/day/day.tscn" id="4_n360k"]
 
+[sub_resource type="Theme" id="Theme_n360k"]
+
 [node name="Gui" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 592.0
+offset_right = 1165.1348
+offset_bottom = 632.11414
+scale = Vector2(0.98872685, 1.396018)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 104.0
+color = Color(0, 0, 0, 1)
 
 [node name="Stressbar" parent="." instance=ExtResource("1_yw5qc")]
 offset_left = 27.0
 offset_top = 21.0
 offset_right = 27.0
 offset_bottom = 21.0
+theme = SubResource("Theme_n360k")
 
 [node name="Timer" parent="." instance=ExtResource("2_ioifv")]
 offset_left = 1086.0
@@ -20,10 +35,10 @@ offset_right = 1086.0
 offset_bottom = 16.0
 
 [node name="Bank" parent="." instance=ExtResource("3_q46mf")]
-offset_left = 1041.0
-offset_top = 578.0
-offset_right = -29.0
-offset_bottom = -24.0
+offset_left = 1087.0
+offset_top = 600.0
+offset_right = 17.0
+offset_bottom = -2.0
 
 [node name="Day" parent="." instance=ExtResource("4_n360k")]
 offset_left = 1039.0

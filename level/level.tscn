@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://dao0tn10xn2ar"]
+
+[ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
+[ext_resource type="Texture2D" uid="uid://bjg80rs3aguub" path="res://level/level_layout.png" id="2_5gx2l"]
+[ext_resource type="PackedScene" uid="uid://v5wfel75jq1h" path="res://interactables/interactable.tscn" id="3_qohg2"]
+[ext_resource type="PackedScene" uid="uid://ddtvttl6lwx85" path="res://gui/gui.tscn" id="4_vkbyq"]
+[ext_resource type="Texture2D" uid="uid://dtwdgbrq144l1" path="res://level/column.png" id="5_ktfr2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkbyq"]
+size = Vector2(20, 308)
+
+[node name="Level" type="Node2D"]
+position = Vector2(0, -1)
+
+[node name="Player" parent="." instance=ExtResource("1_7lnir")]
+z_index = 5
+position = Vector2(665, 448)
+scale = Vector2(0.46, 0.46)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(10.869602, -267.39133)
+limit_left = -220
+limit_right = 4490
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scale = Vector2(0.46, 0.46)
+scroll_offset = Vector2(1109, 179)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(2222, 363)
+texture = ExtResource("2_5gx2l")
+
+[node name="Interactable" parent="." groups=["cooler"] instance=ExtResource("3_qohg2")]
+position = Vector2(455.00003, 282)
+scale = Vector2(0.458071, 0.4697598)
+obj_name = "board"
+
+[node name="Gui" parent="." instance=ExtResource("4_vkbyq")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-84, 391)
+shape = SubResource("RectangleShape2D_vkbyq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(4495, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-84, 391)
+shape = SubResource("RectangleShape2D_vkbyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(1442.9999, 349)
+scale = Vector2(0.4501069, 0.4709578)
+texture = ExtResource("5_ktfr2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(3017.9998, 347.99997)
+scale = Vector2(0.4501069, 0.4709578)
+texture = ExtResource("5_ktfr2")
