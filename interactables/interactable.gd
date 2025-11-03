@@ -2,18 +2,45 @@
 class_name Interactable
 extends Node2D
 
-enum OBJ_NAMES { ДОСКА }
-
-@export_group("glow")
+#@export_group("glow")
 @export var glow_sprite: Sprite2D
 @export var anim_player: AnimationPlayer
 @export var animation_name := "glow"
+
+@export var trigger_width: int:
+	set(t):
+		trigger_width = t
+		var q = $Area2D/CollisionShape2D.shape
+		if q is RectangleShape2D:
+			q.size = Vector2(trigger_width, q.size.y) 
+
+@export var trigger_offset: int:
+	set(t):
+		trigger_offset = t
+		$Area2D/CollisionShape2D.position.x = t
+		
+
 
 ## Картинка
 @export var sprite_texture: Texture2D:
 	set(t):
 		sprite_texture = t
 		$Sprite.texture = t
+		
+@export var glow_texture: Texture2D:
+	set(t):
+		glow_texture = t
+		$Glow.texture = t
+		
+@export var glow_scale: Vector2:
+	set(t):
+		glow_scale = t
+		$Glow.scale = t
+		
+@export var glow_offset: Vector2:
+	set(t):
+		glow_offset = t
+		$Glow.offset = t
 
 ## Размер (масштаб)
 @export var sprite_size: Vector2 = Vector2(64,64):
@@ -36,14 +63,14 @@ enum OBJ_NAMES { ДОСКА }
 @onready var gj_popup = $gj_popup
 @onready var animations = $Interact_popup/AnimationPlayer
 @onready var player_near = false
-@onready var obj_sprt = $AnimatedSprite2D
 @onready var activate_timer = $activate_timer
 @onready var glow_image = $Glow
+@onready var animGlow = $animGlow
 
 @export var stress = 15
 @export var money = 100
 @export var panel_sprts: Array[CompressedTexture2D]
-@export var obj_name: OBJ_NAMES
+
 
 var DURATION = 3
 
@@ -64,7 +91,10 @@ func _ready():
 		await get_tree().process_frame
 		_update_sprite_scale()
 	
-	start_glow()
+	#start_glow()
+	
+	animGlow.play('pulsing_rapid')
+	
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
 	gj_popup.visible = false
