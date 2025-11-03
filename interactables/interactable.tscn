@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://v5wfel75jq1h"]
+[gd_scene load_steps=8 format=3 uid="uid://v5wfel75jq1h"]
 
 [ext_resource type="Script" uid="uid://n51lk83yitjg" path="res://interactables/interactable.gd" id="1_7t3he"]
+[ext_resource type="Texture2D" uid="uid://bqvngo254c8b6" path="res://level/items/доска/доска объявлений свечение.png" id="2_7t3he"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdhm5"]
 size = Vector2(116, 114.5)
@@ -103,6 +104,7 @@ position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_kdhm5")
 
 [node name="Interact_popup" type="Label" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
@@ -126,6 +128,7 @@ libraries = {
 speed_scale = 7.0
 
 [node name="gj_popup" type="Label" parent="."]
+visible = false
 offset_left = -6.0
 offset_top = -33.0
 offset_right = 34.0
@@ -133,6 +136,12 @@ offset_bottom = -10.0
 text = "gj!"
 
 [node name="activate_timer" type="Timer" parent="."]
+
+[node name="Glow" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2.0000076, -0.9999924)
+scale = Vector2(0.28867525, 0.29658565)
+texture = ExtResource("2_7t3he")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 

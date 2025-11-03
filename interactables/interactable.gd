@@ -1,6 +1,35 @@
+@tool               
+class_name Interactable
 extends Node2D
 
 enum OBJ_NAMES { ДОСКА }
+
+@export_group("glow")
+@export var glow_sprite: Sprite2D
+@export var anim_player: AnimationPlayer
+@export var animation_name := "glow"
+
+## Картинка
+@export var sprite_texture: Texture2D:
+	set(t):
+		sprite_texture = t
+		$Sprite.texture = t
+
+## Размер (масштаб)
+@export var sprite_size: Vector2 = Vector2(64,64):
+	set(s):
+		sprite_size = s
+		if sprite: sprite.scale = sprite_size / sprite.texture.get_size()
+
+## Смещение пиксельного центра
+@export var sprite_offset: Vector2:
+	set(o):
+		sprite_offset = o
+		if sprite:
+			sprite.centered = true
+			sprite.offset = sprite_offset
+			
+@onready var sprite: Sprite2D = $Sprite
 
 #тут инициация переменных сцены
 @onready var interact_popup = $Interact_popup
@@ -9,7 +38,7 @@ enum OBJ_NAMES { ДОСКА }
 @onready var player_near = false
 @onready var obj_sprt = $AnimatedSprite2D
 @onready var activate_timer = $activate_timer
-
+@onready var glow_image = $Glow
 
 @export var stress = 15
 @export var money = 100
@@ -23,29 +52,41 @@ var DURATION = 3
 var event_penalty = 0
 var event_bank = 0
 var event_stress = 0
-var obj_link
 var event_images = []
 var event_sound = ""
 var event_id = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if sprite.texture:
+		_update_sprite_scale()
+	else:
+		await get_tree().process_frame
+		_update_sprite_scale()
+	
+	start_glow()
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
 	gj_popup.visible = false
 
-	match obj_name:
-		OBJ_NAMES.ДОСКА:
-			obj_link = preload("res://level/items/доска/доска.tscn").instantiate()
-			add_child(obj_link)
-			
-	
 	pass # Replace with function body.
 
+func _update_sprite_scale() -> void:
+	if not sprite or not sprite.texture: return
+	var tex_size := Vector2(sprite.texture.get_size())
+	sprite.scale = Vector2.ONE if tex_size == Vector2.ZERO else sprite_size / tex_size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func start_glow() -> void:
+	if not anim_player or not anim_player.has_animation(animation_name): return
+	anim_player.play(animation_name)
+
+func stop_glow() -> void:
+	anim_player.stop()
+	if glow_sprite: glow_sprite.modulate = Color.WHITE   # сброс
 
 #что происходит на интеракт
 func _input(event: InputEvent): 
@@ -69,6 +110,7 @@ func _input(event: InputEvent):
 	pass
 
 func activate(event):
+	print("tut!")
 	interact_popup.text = event.instanse.get("name",   "")
 	event_images = event.instanse.get("images", [])
 	event_sound = event.instanse.get("sound",   "")
@@ -78,8 +120,7 @@ func activate(event):
 	event_stress = event.get("stress",   0)
 	event_bank = event.get("bank",   0)
 
-	obj_link.make_it_glow()
-
+	glow_image.visible = true
 	activated = true
 	#obj_sprt.modulate = Color.RED   
 	_update_popup()
@@ -89,6 +130,7 @@ func deactivate():
 	#obj_sprt.modulate = Color.GREEN
 	interact_popup.visible = false
 	activate_timer.stop()
+	glow_image.visible = false
 	
 func _on_area_2d_body_entered(body):
 	player_near = true

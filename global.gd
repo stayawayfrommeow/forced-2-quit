@@ -57,7 +57,7 @@ const events := [
 			"instanse": event_instanses["nocomics"]
 		},
 		{
-			"group": "printer",
+			"group": "board",
 			"lifetime": 5,
 			"stress": 5,
 			"bank": 50,
@@ -145,9 +145,11 @@ func generate_events(time_tick: int):
 	for event in events[day - 1]:
 		if (event.eventTimes.has(time_tick)):
 			var nodes = get_tree().get_nodes_in_group(event.group)
+			print(event.group, nodes)
 			for i in range(nodes.size()):
 				var val = nodes[i]
 				if (!val.activated):
+
 					val.activate(event)
 					break;
 				

@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dao0tn10xn2ar"]
+[gd_scene load_steps=9 format=3 uid="uid://dao0tn10xn2ar"]
 
 [ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
 [ext_resource type="Texture2D" uid="uid://bjg80rs3aguub" path="res://level/level_layout.png" id="2_5gx2l"]
 [ext_resource type="PackedScene" uid="uid://ddtvttl6lwx85" path="res://gui/gui.tscn" id="4_vkbyq"]
 [ext_resource type="PackedScene" uid="uid://v5wfel75jq1h" path="res://interactables/interactable.tscn" id="5_44x8d"]
 [ext_resource type="Texture2D" uid="uid://dtwdgbrq144l1" path="res://level/column.png" id="5_ktfr2"]
+[ext_resource type="Texture2D" uid="uid://7416kgvrvkbh" path="res://level/items/доска/доска объявлений.png" id="6_44x8d"]
+[ext_resource type="Texture2D" uid="uid://n11kjqxdoc0h" path="res://level/items/кулер/кулер.png" id="7_ivpvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkbyq"]
 size = Vector2(20, 308)
@@ -60,5 +62,12 @@ position = Vector2(3017.9998, 347.99997)
 scale = Vector2(0.4501069, 0.4709578)
 texture = ExtResource("5_ktfr2")
 
-[node name="Interactable" parent="." instance=ExtResource("5_44x8d")]
-position = Vector2(444, 312)
+[node name="Interactable" parent="." groups=["board", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(442, 309)
+sprite_texture = ExtResource("6_44x8d")
+sprite_size = Vector2(241, 171)
+
+[node name="Interactable2" parent="." groups=["cooler", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(844, 444)
+sprite_texture = ExtResource("7_ivpvi")
+sprite_size = Vector2(96, 301)
