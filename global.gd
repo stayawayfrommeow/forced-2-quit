@@ -89,7 +89,7 @@ func generate_events(time_tick: int):
 		if (event.eventTimes.has(time_tick)):
 			var nodes = get_tree().get_nodes_in_group(event.group)
 			for i in range(nodes.size()):
-				var val = nodes[i] 
+				var val = nodes[i]
 				if (!val.activated):
 					val.activate(event.lifetime, event.penalty, event.stress, event.bank, event.name)
 					break;
@@ -107,7 +107,7 @@ func generate_events(time_tick: int):
 func start_next_day():
 	var nodes = get_tree().get_nodes_in_group("Interactables")
 	for i in range(nodes.size()):
-		var val = nodes[i] 
+		var val = nodes[i]
 		if (val.activated):
 			val.deactivate()
 	
