@@ -3,6 +3,8 @@ extends Node2D
 signal upd_stress(val)
 signal upd_bank(val)
 signal upd_day(val)
+signal upd_current_event(val)
+
 
 var day1scn = preload("res://day1/day1.tscn")
 var letter_scn = preload("res://starting_letter/starting_letter.tscn")
@@ -39,63 +41,53 @@ const events := [
 	[
 		{
 			"group": "cooler",
-			"lifetime": 5,
+			"lifetime": 120,
 			"stress": 5,
 			"bank": 50,
 			"penalty": 20,
-			"eventTimes": [6, 12, 18, 24, 30, 36],
+			"eventTimes": [10, 140],
 			"instanse": event_instanses["drink"]
 		},
 		{
-			"group": "elevator",
-			"lifetime": 5,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 20,
-			"name": "Погулять",
-			"eventTimes": [1],
-			"instanse": event_instanses["nocomics"]
-		},
-		{
 			"group": "board",
-			"lifetime": 5,
+			"lifetime": 150,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 200,
 			"name": "Распечатать документы",
-			"eventTimes": [3, 9, 14, 24],
+			"eventTimes": [20, 400],
 			"instanse": event_instanses["board"]
 		},
 	],
 	[
 		{
 			"group": "printer",
-			"lifetime": 5,
+			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
 			"penalty": 20,
 			"name": "Распечатать документы",
-			"eventTimes": [6, 12, 18, 24],
+			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
 		},
 		{
 			"group": "cooler",
-			"lifetime": 5,
+			"lifetime": 50,
 			"stress": 10,
 			"bank": 50,
 			"penalty": 20,
 			"name": "Попить воду",
-			"eventTimes": [3, 9, 15, 21],
+			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["drink"]
 		},
 		{
 			"group": "elevator",
-			"lifetime": 5,
+			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
 			"penalty": 20,
 			"name": "Погулять",
-			"eventTimes": [30, 36, 42],
+			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		}
 	],
@@ -140,12 +132,28 @@ func _ready():
 
 var day = 1
 
+@export var current_events = []
+func add_events(event):
+	current_events.push_back(event)
+	emit_signal('upd_current_event', current_events)
+	pass
+	
+func delete_events(event):
+	remove_by_id(current_events, event.get_instance_id())
+	emit_signal('upd_current_event', current_events)
+	pass
+	
+func remove_by_id(nodes, id: int) -> void:
+	# идём с конца, чтобы индексы не съехали
+	for i in range(nodes.size() - 1, -1, -1):
+		if nodes[i].get_instance_id() == id:
+			nodes.remove_at(i)	
+
 
 func generate_events(time_tick: int):
 	for event in events[day - 1]:
 		if (event.eventTimes.has(time_tick)):
 			var nodes = get_tree().get_nodes_in_group(event.group)
-			print(event.group, nodes)
 			for i in range(nodes.size()):
 				var val = nodes[i]
 				if (!val.activated):
@@ -153,15 +161,7 @@ func generate_events(time_tick: int):
 					val.activate(event)
 					break;
 				
-		
-	
-	#var nodes = get_tree().get_nodes_in_group("Interactables")
-	#for i in range(nodes.size()):
-		#var val = nodes[i] 
-#
-		#if schedule[i].has(time_tick):
-			#val.activate()
-			#print("Активация", i)
+
 
 func start_next_day():
 	var nodes = get_tree().get_nodes_in_group("items")
@@ -175,7 +175,7 @@ func start_next_day():
 	emit_signal('upd_day', day)
 	
 	
-	get_tree().change_scene_to_file("res://day1/day1.tscn")
+	get_tree().change_scene_to_file("res://level/level.tscn")
 
 func end_current_day():
 	get_tree().change_scene_to_file("res://day_passed/day_passed.tscn")

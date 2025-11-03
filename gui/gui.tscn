@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddtvttl6lwx85"]
+[gd_scene load_steps=7 format=3 uid="uid://ddtvttl6lwx85"]
 
 [ext_resource type="PackedScene" uid="uid://cnqxjfj636es5" path="res://gui/stressbar/stressbar.tscn" id="1_yw5qc"]
 [ext_resource type="PackedScene" uid="uid://dalinajj3vicw" path="res://gui/timer/timer.tscn" id="2_ioifv"]
 [ext_resource type="PackedScene" uid="uid://bqysnnsh10kqh" path="res://gui/bank/bank.tscn" id="3_q46mf"]
 [ext_resource type="PackedScene" uid="uid://b12vsoltw4wp1" path="res://gui/day/day.tscn" id="4_n360k"]
+[ext_resource type="PackedScene" uid="uid://csoljlluto1dv" path="res://gui/task_counter/task_counter.tscn" id="5_hp187"]
 
 [sub_resource type="Theme" id="Theme_n360k"]
 
@@ -45,3 +46,16 @@ offset_left = 1039.0
 offset_top = 17.0
 offset_right = -78.0
 offset_bottom = -604.0
+
+[node name="TaskCounterLeft" parent="." instance=ExtResource("5_hp187")]
+visible = false
+offset_top = 111.0
+offset_bottom = 111.0
+
+[node name="TaskCounterRight" parent="." instance=ExtResource("5_hp187")]
+visible = false
+offset_left = 1111.0
+offset_top = 112.0
+offset_right = 1111.0
+offset_bottom = 112.0
+side = 1

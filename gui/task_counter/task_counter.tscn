@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://csoljlluto1dv"]
+
+[ext_resource type="Script" uid="uid://di1onwlct8m87" path="res://gui/task_counter/task_counter.gd" id="1_pmubx"]
+
+[node name="TaskCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pmubx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+layout_mode = 0
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 25.0
+offset_bottom = 30.0
+
+[node name="Label2" type="Label" parent="ColorRect"]
+modulate = Color(0, 0, 0, 1)
+z_index = 2
+layout_mode = 0
+offset_left = 1.0
+offset_top = 9.0
+offset_right = 11.0
+offset_bottom = 32.0

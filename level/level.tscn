@@ -14,13 +14,13 @@ size = Vector2(20, 308)
 [node name="Level" type="Node2D"]
 position = Vector2(0, -1)
 
-[node name="Player" parent="." instance=ExtResource("1_7lnir")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_7lnir")]
 unique_name_in_owner = true
 z_index = 5
 position = Vector2(677, 448)
 scale = Vector2(0.46, 0.46)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["main_camera"]]
 position = Vector2(10.869602, -267.39133)
 process_callback = 0
 limit_left = -219
@@ -66,8 +66,10 @@ texture = ExtResource("5_ktfr2")
 position = Vector2(442, 309)
 sprite_texture = ExtResource("6_44x8d")
 sprite_size = Vector2(241, 171)
+time_left = 1
 
 [node name="Interactable2" parent="." groups=["cooler", "items"] instance=ExtResource("5_44x8d")]
 position = Vector2(844, 444)
 sprite_texture = ExtResource("7_ivpvi")
 sprite_size = Vector2(96, 301)
+time_left = 1

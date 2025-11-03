@@ -20,7 +20,7 @@ func _process(delta):
 
 func calc_time(total_time : int) -> void:
 	# константы, которые должны быть где-то объявлены
-	const MINUTERS_PER_TICK := 10          # сколько минут игрового времени в одном тике
+	const MINUTERS_PER_TICK := 1          # сколько минут игрового времени в одном тике
 	const MINUTES_PER_HOUR  := 60
 	const START_HOURS       := 9    
 
@@ -39,6 +39,6 @@ func _on_timer_timeout():
 	
 	Global.generate_events(total_time)
 	
-	if (total_time > 54):
+	if (total_time > 540):
 		Global.end_current_day()
 	pass # Replace with function body.

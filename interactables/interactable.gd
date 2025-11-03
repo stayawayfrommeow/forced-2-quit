@@ -76,8 +76,11 @@ func _update_sprite_scale() -> void:
 	var tex_size := Vector2(sprite.texture.get_size())
 	sprite.scale = Vector2.ONE if tex_size == Vector2.ZERO else sprite_size / tex_size
 
+@export var time_left := 0
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	time_left = activate_timer.time_left
 	pass
 
 func start_glow() -> void:
@@ -110,18 +113,19 @@ func _input(event: InputEvent):
 	pass
 
 func activate(event):
-	print("tut!")
 	interact_popup.text = event.instanse.get("name",   "")
 	event_images = event.instanse.get("images", [])
 	event_sound = event.instanse.get("sound",   "")
 	event_id = event.instanse.get("id",   "")
-	activate_timer.start(event.get("lifetime",  0))
+	activate_timer.start(event.get("lifetime",  0) / 10)
 	event_penalty = event.get("penalty",   0)
 	event_stress = event.get("stress",   0)
 	event_bank = event.get("bank",   0)
 
 	glow_image.visible = true
 	activated = true
+	
+	Global.add_events(self)
 	#obj_sprt.modulate = Color.RED   
 	_update_popup()
 
@@ -131,6 +135,7 @@ func deactivate():
 	interact_popup.visible = false
 	activate_timer.stop()
 	glow_image.visible = false
+	Global.delete_events(self)
 	
 func _on_area_2d_body_entered(body):
 	player_near = true
@@ -160,7 +165,6 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_timer_timeout() -> void:
 	Global.stress = event_penalty
-	print("tut!")
 	deactivate()
 
 func _on_comic_comic_ended():
