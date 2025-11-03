@@ -19,11 +19,10 @@ scale = Vector2(0.46, 0.46)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(10.869602, -267.39133)
+process_callback = 0
 limit_left = -220
 limit_right = 4490
-limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 50.0
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scale = Vector2(0.46, 0.46)
