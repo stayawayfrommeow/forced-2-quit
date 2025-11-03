@@ -1,4 +1,3 @@
-[gd_scene load_steps=9 format=3 uid="uid://dao0tn10xn2ar"]
 
 [ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
 [ext_resource type="Texture2D" uid="uid://bjg80rs3aguub" path="res://level/level_layout.png" id="2_5gx2l"]
@@ -59,6 +58,7 @@ glow_offset = Vector2(-43, 41)
 sprite_size = Vector2(241, 171)
 time_left = 1
 
+[node name="cooler" parent="." groups=["cooler", "items"] instance=ExtResource("5_44x8d")]
 position = Vector2(844, 444)
 sprite_texture = ExtResource("7_ivpvi")
 sprite_size = Vector2(96, 301)
