@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdvdle8gllkrk"
-path="res://.godot/imported/доска объявлений активная.png-db9dcfebe4297cb3b7f2508d5c58480b.ctex"
+uid="uid://de1brj2i8ffqb"
+path="res://.godot/imported/принтер.png-1f7725e28c34fd802af0d4ddb568edf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/items/доска объявлений активная.png"
-dest_files=["res://.godot/imported/доска объявлений активная.png-db9dcfebe4297cb3b7f2508d5c58480b.ctex"]
+source_file="res://level/items/принтер/принтер.png"
+dest_files=["res://.godot/imported/принтер.png-1f7725e28c34fd802af0d4ddb568edf6.ctex"]
 
 [params]
 

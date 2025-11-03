@@ -1,5 +1,7 @@
 extends Node2D
 
+enum OBJ_NAMES { ДОСКА }
+
 #тут инициация переменных сцены
 @onready var interact_popup = $Interact_popup
 @onready var gj_popup = $gj_popup
@@ -12,7 +14,7 @@ extends Node2D
 @export var stress = 15
 @export var money = 100
 @export var panel_sprts: Array[CompressedTexture2D]
-@export var obj_name: String
+@export var obj_name: OBJ_NAMES
 
 var DURATION = 3
 
@@ -21,24 +23,22 @@ var DURATION = 3
 var event_penalty = 0
 var event_bank = 0
 var event_stress = 0
+var obj_link
 var event_images = []
 var event_sound = ""
 var event_id = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#обект не видно
-	obj_sprt.visible = false
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
 	gj_popup.visible = false
-	#комикс не видно
-	
-	#obj_sprt.modulate = Color.GREEN  
 
-	if obj_name == 'board':
-		obj_sprt.play("board")
-		
+	match obj_name:
+		OBJ_NAMES.ДОСКА:
+			obj_link = preload("res://level/items/доска/доска.tscn").instantiate()
+			add_child(obj_link)
+			
 	
 	pass # Replace with function body.
 
@@ -78,7 +78,7 @@ func activate(event):
 	event_stress = event.get("stress",   0)
 	event_bank = event.get("bank",   0)
 
-	obj_sprt.visible = true
+	obj_link.make_it_glow()
 
 	activated = true
 	#obj_sprt.modulate = Color.RED   
@@ -87,7 +87,6 @@ func activate(event):
 func deactivate(): 
 	activated = false
 	#obj_sprt.modulate = Color.GREEN
-	obj_sprt.visible = false
 	interact_popup.visible = false
 	activate_timer.stop()
 	

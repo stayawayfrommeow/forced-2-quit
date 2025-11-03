@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7416kgvrvkbh"
-path="res://.godot/imported/доска объявлений.png-e46daae48585d14616e2ed977653a1f6.ctex"
+uid="uid://b5v3lmrxal66f"
+path="res://.godot/imported/стол босса.png-8cf414327b689fa3d72d1940cb482c77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/items/доска объявлений.png"
-dest_files=["res://.godot/imported/доска объявлений.png-e46daae48585d14616e2ed977653a1f6.ctex"]
+source_file="res://level/items/стол_босса/стол босса.png"
+dest_files=["res://.godot/imported/стол босса.png-8cf414327b689fa3d72d1940cb482c77.ctex"]
 
 [params]
 
