@@ -490,7 +490,8 @@ func delete_events(event):
 func remove_by_id(nodes, id: int) -> void:
 	# идём с конца, чтобы индексы не съехали
 	for i in range(nodes.size() - 1, -1, -1):
-		if nodes[i].get_instance_id() == id:
+		
+		if is_instance_valid(nodes[i]) and nodes[i].get_instance_id() == id:
 			nodes.remove_at(i)	
 
 
@@ -518,7 +519,7 @@ func start_next_day():
 	day += 1
 	emit_signal('upd_day', day)
 	current_events = []
-  
+
 	get_tree().change_scene_to_file("res://level/level.tscn")
 
 func end_current_day():

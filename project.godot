@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 Global="*res://global.gd"
 Spawner="*res://scripts/slider_spawner.gd"
 
+[gui]
+
+theme/custom_font="uid://dd5dso8mbbcr"
+
 [input]
 
 move_left={

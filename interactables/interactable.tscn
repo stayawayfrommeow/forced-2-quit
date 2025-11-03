@@ -195,7 +195,7 @@ text = "gj!"
 
 [node name="Glow" type="Sprite2D" parent="."]
 visible = false
-self_modulate = Color(1, 1, 1, 0.98951876)
+self_modulate = Color(1, 1, 1, 0.4039994)
 position = Vector2(2.0000076, -0.9999924)
 scale = Vector2(0.28867525, 0.29658565)
 texture = ExtResource("2_7t3he")

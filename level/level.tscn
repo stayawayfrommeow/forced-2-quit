@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dao0tn10xn2ar"]
+[gd_scene load_steps=33 format=3 uid="uid://dao0tn10xn2ar"]
 
 [ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
 [ext_resource type="Texture2D" uid="uid://bjg80rs3aguub" path="res://level/level_layout.png" id="2_5gx2l"]
@@ -28,6 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://ddow6vvx8rkgl" path="res://level/items/фото/фото свечение.png" id="25_xdahv"]
 [ext_resource type="Texture2D" uid="uid://bf3xtpwhyw5w3" path="res://level/items/цветок/цветок свечение.png" id="27_krw8e"]
 [ext_resource type="AudioStream" uid="uid://c6xtdovyi4w1i" path="res://assets/sounds/comics/comics_1/1.wav" id="28_7cdnq"]
+[ext_resource type="PackedScene" uid="uid://nh8i1650tgv0" path="res://characters/character.tscn" id="28_7cdnq"]
+[ext_resource type="Texture2D" uid="uid://bs3wsim1cgfil" path="res://assets/characters/Shark_Static.png" id="29_lsj08"]
+[ext_resource type="Texture2D" uid="uid://bbvll1xye72yu" path="res://assets/characters/Ant_Static.png" id="30_u5n7q"]
+[ext_resource type="Texture2D" uid="uid://ea4s47wdrarf" path="res://assets/characters/Hare_Static.png" id="31_qslh7"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkbyq"]
 size = Vector2(20, 308)
@@ -197,3 +202,19 @@ stream = ExtResource("28_7cdnq")
 volume_db = 1.0
 autoplay = true
 playback_type = 1
+
+[node name="shark" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(4162, 351)
+rotation = 0.010471975
+sprite_size = Vector2(300, 300)
+sprite_texture = ExtResource("29_lsj08")
+
+[node name="ant" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(2092, 445)
+sprite_size = Vector2(474, 450)
+sprite_texture = ExtResource("30_u5n7q")
+
+[node name="bunny" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(924, 433)
+sprite_size = Vector2(474, 450)
+sprite_texture = ExtResource("31_qslh7")
