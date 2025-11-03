@@ -15,12 +15,12 @@ script = ExtResource("1_7htkw")
 [node name="Player" parent="." instance=ExtResource("1_48ukd")]
 z_index = 5
 position = Vector2(217, 206.00002)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.3, 0.3)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, -29.333336)
 zoom = Vector2(2, 2)
-position_smoothing_enabled = true
+limit_enabled = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(207, 161)
