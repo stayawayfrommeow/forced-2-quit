@@ -37,6 +37,7 @@ position = Vector2(219, 154)
 position = Vector2(65, 202)
 
 [node name="win_screen_placeholder" type="Label" parent="."]
+visible = false
 offset_left = -45.0
 offset_top = -64.0
 offset_right = 555.0
@@ -45,6 +46,7 @@ text = "win"
 label_settings = SubResource("LabelSettings_7htkw")
 
 [node name="Gui" parent="." instance=ExtResource("5_jxyad")]
+visible = false
 
 [connection signal="tree_exited" from="Interactable" to="." method="_on_interactable_tree_exited"]
 [connection signal="tree_exited" from="Interactable2" to="." method="_on_interactable_2_tree_exited"]

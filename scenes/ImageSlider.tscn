@@ -1,7 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqwddl5krq40h"]
+[gd_scene load_steps=7 format=3 uid="uid://dqwddl5krq40h"]
 
 [ext_resource type="Script" uid="uid://cqk4wic73gw7i" path="res://scenes/image_slider.gd" id="1_2vkrn"]
 [ext_resource type="Texture2D" uid="uid://dflk2ng4a4hgl" path="res://assets/comics/comics_1/2.jpg" id="2_vax0y"]
+
+[sub_resource type="Theme" id="Theme_vax0y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i84mw"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qp0pk"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="GDScript" id="GDScript_vax0y"]
 
@@ -14,14 +30,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2vkrn")
 
-[node name="Dimmer" type="ColorRect" parent="."]
+[node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -302.0
+offset_right = 322.0
+offset_bottom = 302.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.11372549, 0.11372549, 0.11372549, 0.49803922)
+pivot_offset = Vector2(746.0214, 379.44986)
+theme = SubResource("Theme_vax0y")
+theme_override_styles/panel = SubResource("StyleBoxFlat_i84mw")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -300.0
+offset_right = 320.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(300, 300)
+theme = SubResource("Theme_vax0y")
+theme_override_styles/panel = SubResource("StyleBoxFlat_qp0pk")
 
 [node name="Image" type="TextureRect" parent="."]
 layout_mode = 1
@@ -37,5 +78,6 @@ offset_bottom = 282.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_vax0y")
+expand_mode = 5
 stretch_mode = 5
 script = SubResource("GDScript_vax0y")

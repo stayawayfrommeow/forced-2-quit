@@ -1,6 +1,6 @@
 extends Control
 
-@onready var bar = $ProgressBar
+@onready var bar = $TextureProgressBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

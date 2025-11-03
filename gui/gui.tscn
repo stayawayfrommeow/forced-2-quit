@@ -23,29 +23,37 @@ offset_bottom = 104.0
 color = Color(0, 0, 0, 1)
 
 [node name="Stressbar" parent="." instance=ExtResource("1_yw5qc")]
-offset_left = 27.0
-offset_top = 21.0
-offset_right = 27.0
-offset_bottom = 21.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -415.99994
+offset_top = 16.0
+offset_right = -415.99994
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 1
+scale = Vector2(0.6, 0.6)
+size_flags_horizontal = 8
 theme = SubResource("Theme_n360k")
 
 [node name="Timer" parent="." instance=ExtResource("2_ioifv")]
-offset_left = 1086.0
-offset_top = 16.0
-offset_right = 1086.0
-offset_bottom = 16.0
+offset_left = 816.0
+offset_top = 40.0
+offset_right = -283.0
+offset_bottom = -584.0
 
 [node name="Bank" parent="." instance=ExtResource("3_q46mf")]
-offset_left = 1087.0
-offset_top = 600.0
-offset_right = 17.0
-offset_bottom = -2.0
+offset_left = 752.0
+offset_top = 40.0
+offset_right = -318.0
+offset_bottom = -562.0
 
 [node name="Day" parent="." instance=ExtResource("4_n360k")]
-offset_left = 1039.0
-offset_top = 17.0
-offset_right = -78.0
-offset_bottom = -604.0
+offset_left = 904.0
+offset_top = 40.0
+offset_right = -213.0
+offset_bottom = -584.0
 
 [node name="TaskCounterLeft" parent="." instance=ExtResource("5_hp187")]
 visible = false

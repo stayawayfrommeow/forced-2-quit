@@ -1,6 +1,8 @@
 extends Node
 class_name SliderSpawner
 
+signal slider_closed
+
 const SLIDER_SCENE := preload("res://scenes/ImageSlider.tscn")
 
 func show_slider(
@@ -31,5 +33,6 @@ func show_slider(
 	slider.setup(textures, audio_path)
 
 func _on_slider_closed(layer: CanvasLayer) -> void:
-	get_tree().paused = false 
+	get_tree().paused = false
+	emit_signal('slider_closed')
 	layer.queue_free()

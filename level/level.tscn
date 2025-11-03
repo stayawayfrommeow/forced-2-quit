@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dao0tn10xn2ar"]
+[gd_scene load_steps=30 format=3 uid="uid://dao0tn10xn2ar"]
 
 [ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
 [ext_resource type="Texture2D" uid="uid://bjg80rs3aguub" path="res://level/level_layout.png" id="2_5gx2l"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://drraubsd4jh" path="res://level/items/телефон/телефон свечение.png" id="23_s1aav"]
 [ext_resource type="Texture2D" uid="uid://ddow6vvx8rkgl" path="res://level/items/фото/фото свечение.png" id="25_xdahv"]
 [ext_resource type="Texture2D" uid="uid://bf3xtpwhyw5w3" path="res://level/items/цветок/цветок свечение.png" id="27_krw8e"]
+[ext_resource type="AudioStream" uid="uid://c6xtdovyi4w1i" path="res://assets/sounds/comics/comics_1/1.wav" id="28_7cdnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkbyq"]
 size = Vector2(20, 308)
@@ -72,30 +73,24 @@ texture = ExtResource("5_ktfr2")
 [node name="board" parent="." groups=["board", "items"] instance=ExtResource("5_44x8d")]
 position = Vector2(442, 309)
 trigger_width = 240
-trigger_offset = 0
 sprite_texture = ExtResource("6_44x8d")
 glow_texture = ExtResource("7_m5ivw")
 glow_scale = Vector2(0.5, 0.4)
 glow_offset = Vector2(-43, 41)
 sprite_size = Vector2(241, 171)
-time_left = 1
 
 [node name="cooler" parent="." groups=["cooler", "items"] instance=ExtResource("5_44x8d")]
 position = Vector2(844, 444)
 trigger_width = 88
-trigger_offset = 0
 sprite_texture = ExtResource("7_ivpvi")
 glow_texture = ExtResource("9_sui6v")
 glow_scale = Vector2(0.3, 0.3)
 glow_offset = Vector2(58, -219)
 sprite_size = Vector2(96, 301)
-time_left = 1
-
 
 [node name="lift" parent="." groups=["items", "lift"] instance=ExtResource("5_44x8d")]
 position = Vector2(681, 394)
 trigger_width = 203
-trigger_offset = 0
 sprite_texture = ExtResource("8_7jqyl")
 glow_texture = ExtResource("11_h74y2")
 glow_scale = Vector2(0.5, 0.47)
@@ -109,14 +104,12 @@ trigger_offset = -29
 sprite_texture = ExtResource("9_m5ivw")
 glow_texture = ExtResource("13_7cdnq")
 glow_scale = Vector2(0.45, 0.45)
-glow_offset = Vector2(0, 0)
 sprite_size = Vector2(169, 103)
 
 [node name="planerka" parent="." groups=["items", "planerka"] instance=ExtResource("5_44x8d")]
 position = Vector2(3605.9998, 509.99997)
 scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 140
-trigger_offset = 0
 sprite_texture = ExtResource("10_sui6v")
 glow_texture = ExtResource("15_lsj08")
 glow_scale = Vector2(0.4, 0.4)
@@ -127,7 +120,6 @@ sprite_size = Vector2(156, 154)
 position = Vector2(1703.9999, 504.99997)
 scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 214
-trigger_offset = 0
 sprite_texture = ExtResource("11_tv7ir")
 glow_texture = ExtResource("17_u5n7q")
 glow_scale = Vector2(0.4, 0.4)
@@ -138,7 +130,6 @@ sprite_size = Vector2(225, 166)
 position = Vector2(4338.9995, 367.00003)
 scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 126
-trigger_offset = 0
 sprite_texture = ExtResource("12_kp5pi")
 glow_texture = ExtResource("19_qslh7")
 glow_scale = Vector2(0.5, 0.4)
@@ -176,18 +167,15 @@ trigger_offset = 28
 sprite_texture = ExtResource("15_xl7j7")
 glow_texture = ExtResource("25_xdahv")
 glow_scale = Vector2(0.4, 0.4)
-glow_offset = Vector2(0, 0)
 sprite_size = Vector2(50, 40)
 
 [node name="flower" parent="." groups=["flower", "items"] instance=ExtResource("5_44x8d")]
 position = Vector2(2816, 437.99997)
 scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 104
-trigger_offset = 0
 sprite_texture = ExtResource("16_o0wo3")
 glow_texture = ExtResource("27_krw8e")
 glow_scale = Vector2(0.45, 0.4)
-glow_offset = Vector2(0, 0)
 sprite_size = Vector2(130, 90)
 
 [node name="lvl_boundary_left" type="StaticBody2D" parent="."]
@@ -203,3 +191,9 @@ position = Vector2(4495, -11)
 position = Vector2(-84, 391)
 shape = SubResource("RectangleShape2D_vkbyq")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2249, 187)
+stream = ExtResource("28_7cdnq")
+volume_db = 1.0
+autoplay = true
+playback_type = 1

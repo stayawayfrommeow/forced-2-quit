@@ -5,8 +5,6 @@ signal upd_bank(val)
 signal upd_day(val)
 signal upd_current_event(val)
 
-
-var day1scn = preload("res://day1/day1.tscn")
 var letter_scn = preload("res://starting_letter/starting_letter.tscn")
 var stressbar = "res://stressbar/stressbar.tscn"
 
@@ -21,9 +19,49 @@ const event_instanses = {
 		],
 		"sound": "res://assets/sounds/comics/comics_1/1.wav"
 	},
-	"drink": {
-		"id": "drink",
-		"name": "Попить воды",
+	"mail": {
+		"id": "mail",
+		"name": "проверить почту",
+		"images": [
+			"res://assets/comics/comics_1/4.png",
+		],
+		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+	},
+	"walk": {
+		"id": "walk",
+		"name": "прошвырнуться",
+		"images": [
+			"res://assets/comics/comics_1/4.png",
+		],
+		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+	},
+	"planerka": {
+		"id": "planerka",
+		"name": "планёрка",
+		"images": [
+			"res://assets/comics/comics_1/4.png",
+		],
+		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+	},
+	"call": {
+		"id": "call",
+		"name": "позвонить другу",
+		"images": [
+			"res://assets/comics/comics_1/4.png",
+		],
+		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+	},
+	"motivate": {
+		"id": "motivate",
+		"name": "делай это ради них",
+		"images": [
+			"res://assets/comics/comics_1/4.png",
+		],
+		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+	},
+	"polish": {
+		"id": "polish",
+		"name": "до блеска!",
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
@@ -38,6 +76,7 @@ const event_instanses = {
 }
 
 const events := [
+	#DAY 1
 	[
 		{
 			"group": "cooler",
@@ -46,7 +85,8 @@ const events := [
 			"bank": 50,
 			"penalty": 20,
 			"eventTimes": [10, 140],
-			"instanse": event_instanses["drink"]
+			"name": "попитлз",
+			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "board",
@@ -54,19 +94,30 @@ const events := [
 			"stress": 5,
 			"bank": 50,
 			"penalty": 200,
-			"name": "Распечатать документы",
+			"name": "новости?",
 			"eventTimes": [20, 400],
 			"instanse": event_instanses["board"]
 		},
+		{
+			"group": "computer",
+			"lifetime": 150,
+			"stress": 5,
+			"bank": 50,
+			"penalty": 200,
+			"name": "чек почты",
+			"eventTimes": [30, 600],
+			"instanse": event_instanses["mail"]
+		},
 	],
+	#DAY 2
 	[
 		{
-			"group": "printer",
+			"group": "board",
 			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
 			"penalty": 20,
-			"name": "Распечатать документы",
+			"name": "Новости??",
 			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
 		},
@@ -78,23 +129,310 @@ const events := [
 			"penalty": 20,
 			"name": "Попить воду",
 			"eventTimes": [30, 90, 150, 210],
-			"instanse": event_instanses["drink"]
+			"instanse": event_instanses["nocomics"]
 		},
 		{
-			"group": "elevator",
+			"group": "computer",
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
 			"penalty": 20,
-			"name": "Погулять",
+			"name": "спааам",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["mail"]
+		},{
+			"group": "closet",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "протереть",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["polish"]
+		},{
+			"group": "flower",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "полить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
-		}
+		},
 	],
-	[],
-	[],
-	[]
+	#DAY 3
+	[
+		{
+			"group": "board",
+			"lifetime": 50,
+			"stress": 5,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Новости???",
+			"eventTimes": [60, 120, 180, 240],
+			"instanse": event_instanses["board"]
+		},
+		{
+			"group": "cooler",
+			"lifetime": 50,
+			"stress": 10,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Попить воду",
+			"eventTimes": [30, 90, 150, 210],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "computer",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "спааам",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["mail"]
+		},
+		{
+			"group": "closet",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "протереть",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["polish"]
+		},
+		{
+			"group": "flower",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "полить",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "lift",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "прошвырнуться",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["walk"]
+		},
+		{
+			"group": "printer",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "поксерить",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+	],
+	#DAY 4
+	[
+		{
+			"group": "board",
+			"lifetime": 50,
+			"stress": 5,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Новости????",
+			"eventTimes": [60, 120, 180, 240],
+			"instanse": event_instanses["board"]
+		},
+		{
+			"group": "cooler",
+			"lifetime": 50,
+			"stress": 10,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Попить воду",
+			"eventTimes": [30, 90, 150, 210],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "computer",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "спааам",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["mail"]
+		},
+		{
+			"group": "closet",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "протереть",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["polish"]
+		},
+		{
+			"group": "flower",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "полить",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "lift",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "прошвырнуться",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["walk"]
+		},
+		{
+			"group": "printer",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "поксерить",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "phone",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "поговорить с другом",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["call"]
+		},
+		{
+			"group": "boss",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "!%№*?",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+	],
+	#DAY 5
+	[
+		{
+			"group": "board",
+			"lifetime": 50,
+			"stress": 5,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Новости?????",
+			"eventTimes": [60, 120, 180, 240],
+			"instanse": event_instanses["board"]
+		},
+		{
+			"group": "cooler",
+			"lifetime": 50,
+			"stress": 10,
+			"bank": 50,
+			"penalty": 20,
+			"name": "Попить воду",
+			"eventTimes": [30, 90, 150, 210],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "computer",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "спааам",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["mail"]
+		},
+		{
+			"group": "closet",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "протереть",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["polish"]
+		},
+		{
+			"group": "flower",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "полить",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "lift",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "прошвырнуться",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["walk"]
+		},
+		{
+			"group": "printer",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "поксерить",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "phone",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "поговорить с другом",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["call"]
+		},
+		{
+			"group": "boss",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "!%№*?",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "planerka",
+			"lifetime": 50,
+			"stress": 20,
+			"bank": 50,
+			"penalty": 20,
+			"name": "планёр0чка",
+			"eventTimes": [300, 360, 420],
+			"instanse": event_instanses["planerka"]
+		},
+	]
 ]
+
+const endingImages := ["res://assets/comics/comics_1/1.png","res://assets/comics/comics_1/2.jpg","res://assets/comics/comics_1/5.jpg"]
+const endingSound := "res://assets/sounds/comics/comics_1/1.wav"
 
 var MAX_STRESS = 100
 @export var stress = 0:
@@ -104,7 +442,7 @@ var MAX_STRESS = 100
 		if new_value < 0:
 			stress = 0
 		if new_value > MAX_STRESS:
-			print('gg')
+			end_the_game()
 		stress = new_value
 		emit_signal('upd_stress', new_value)
 		
@@ -118,6 +456,12 @@ var MAX_STRESS = 100
 		return bank
 
 var readed_comics: Array[String] = []
+
+func end_the_game():
+	Spawner.show_slider(endingImages, endingSound)
+	await Spawner.slider_closed
+	get_tree().change_scene_to_file("res://ending_screen/ending_screen.tscn")
+	pass
 
 func add_readed_comics(name: String):
 	readed_comics.push_back(name)
@@ -154,6 +498,7 @@ func generate_events(time_tick: int):
 	for event in events[day - 1]:
 		if (event.eventTimes.has(time_tick)):
 			var nodes = get_tree().get_nodes_in_group(event.group)
+			print(event.group, nodes)
 			for i in range(nodes.size()):
 				var val = nodes[i]
 				if (!val.activated):
@@ -162,19 +507,18 @@ func generate_events(time_tick: int):
 					break;
 				
 
-
 func start_next_day():
 	var nodes = get_tree().get_nodes_in_group("items")
 	for i in range(nodes.size()):
 		var val = nodes[i]
 		if (val.activated):
 			val.deactivate()
-	
+  
 	stress = -stress
 	day += 1
 	emit_signal('upd_day', day)
-	
-	
+	current_events = []
+  
 	get_tree().change_scene_to_file("res://level/level.tscn")
 
 func end_current_day():

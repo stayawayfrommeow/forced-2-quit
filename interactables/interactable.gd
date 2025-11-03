@@ -135,7 +135,7 @@ func _input(event: InputEvent):
 				Global.add_readed_comics(event_id)
 			else:
 				print("Анимации")
-				%Player.do_backflip()
+				%Player.do_work(2)
 
 			#comic.emit_signal('comic_start')
 		deactivate()
