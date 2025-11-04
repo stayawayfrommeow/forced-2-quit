@@ -523,8 +523,13 @@ const endingImages := [
 	"res://assets/comics/final/2.png",
 	"res://assets/comics/final/3.png",
 	"res://assets/comics/final/4.png",	
+	"res://assets/comics/final/5.png",
+	"res://assets/comics/final/6.png",
+	"res://assets/comics/final/7.png",
+	"res://assets/comics/final/8.png",	
+	"res://assets/comics/final/9.png",	
 	]
-const endingSound := "res://assets/sounds/comics/comics_1/1.wav"
+const endingSound := "res://assets/sounds/comics/final/1.mp3"
 
 var MAX_STRESS = 100
 @export var stress = 0:
