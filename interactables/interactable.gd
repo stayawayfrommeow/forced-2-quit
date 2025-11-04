@@ -134,7 +134,6 @@ func _input(event: InputEvent):
 				Spawner.show_slider(event_images, event_sound)
 				Global.add_readed_comics(event_id)
 			else:
-				print("Анимации")
 				%Player.do_backflip()
 
 			#comic.emit_signal('comic_start')

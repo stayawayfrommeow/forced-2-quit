@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dd5dso8mbbcr"
-path="res://.godot/imported/ramidots.regular.otf-b03040bbe89a1af764d489d51d7f6ef0.fontdata"
+uid="uid://dux1t03kf3vj2"
+path="res://.godot/imported/Boxtoon-Regular.ttf-c8472cfdb6062f16e379bbad251e9ce5.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/ramidots.regular.otf"
-dest_files=["res://.godot/imported/ramidots.regular.otf-b03040bbe89a1af764d489d51d7f6ef0.fontdata"]
+source_file="res://assets/fonts/Boxtoon-Regular.ttf"
+dest_files=["res://.godot/imported/Boxtoon-Regular.ttf-c8472cfdb6062f16e379bbad251e9ce5.fontdata"]
 
 [params]
 

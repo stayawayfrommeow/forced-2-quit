@@ -22,7 +22,7 @@ Spawner="*res://scripts/slider_spawner.gd"
 
 [gui]
 
-theme/custom_font="uid://dd5dso8mbbcr"
+theme/custom_font="uid://dux1t03kf3vj2"
 
 [input]
 

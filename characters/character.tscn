@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://nh8i1650tgv0"]
+[gd_scene load_steps=4 format=3 uid="uid://nh8i1650tgv0"]
 
 [ext_resource type="Script" uid="uid://ciwk1ffdwot0j" path="res://characters/character.gd" id="1_54qew"]
+[ext_resource type="Texture2D" uid="uid://b5jiw0jmmq4qb" path="res://assets/popups/облачко.png" id="2_qqr4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqr4u"]
 size = Vector2(164.75, 478.5625)
@@ -16,9 +17,49 @@ script = ExtResource("1_54qew")
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_qqr4u")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -78.0
-offset_top = -154.0
-offset_right = -38.0
-offset_bottom = -129.0
-text = "asdasd"
+[node name="TimerNewDialog" type="Timer" parent="."]
+
+[node name="TimerCloseDialog" type="Timer" parent="."]
+
+[node name="BubbleLeft" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(174, -201.00002)
+scale = Vector2(0.4034691, 0.46503496)
+texture = ExtResource("2_qqr4u")
+
+[node name="Label" type="Label" parent="BubbleLeft"]
+z_index = 5
+custom_minimum_size = Vector2(150, 100)
+offset_left = -118.96822
+offset_top = -109.66913
+offset_right = 255.28592
+offset_bottom = 53.7594
+theme_override_font_sizes/font_size = 28
+text = "asdasdaqwe"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BubbleRight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-169, -204)
+scale = Vector2(0.4034691, 0.46503496)
+texture = ExtResource("2_qqr4u")
+flip_h = true
+
+[node name="Label" type="Label" parent="BubbleRight"]
+z_index = 5
+custom_minimum_size = Vector2(150, 100)
+offset_left = -257.7645
+offset_top = -107.518814
+offset_right = 116.489655
+offset_bottom = 55.909714
+theme_override_font_sizes/font_size = 28
+text = "asdasdaqwe"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="TimerNewDialog" to="." method="_on_timer_new_dialog_timeout"]
+[connection signal="timeout" from="TimerCloseDialog" to="." method="_on_timer_close_dialog_timeout"]
