@@ -16,7 +16,7 @@ var side: ArrowSide = ArrowSide.LEFT
 @onready var timerCloseDialog = $"TimerCloseDialog"
 
 const TIMER_NEW_SECONDS = 5
-const TIMER_CLOSE_SECONDS = 10
+const TIMER_CLOSE_SECONDS = 15
 
 var can_view_dialog = true
 
