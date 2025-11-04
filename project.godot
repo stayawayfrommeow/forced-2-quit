@@ -21,6 +21,10 @@ Global="*res://global.gd"
 Spawner="*res://scripts/slider_spawner.gd"
 SharksSpawner="*res://scripts/sharks_spawner.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [gui]
 
 theme/custom_font="uid://dux1t03kf3vj2"
