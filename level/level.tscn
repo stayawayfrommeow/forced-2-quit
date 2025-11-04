@@ -61,7 +61,7 @@ scroll_offset = Vector2(1109, 179)
 position = Vector2(2222, 363)
 texture = ExtResource("2_5gx2l")
 
-[node name="Gui" parent="." instance=ExtResource("4_vkbyq")]
+[node name="Gui" parent="." groups=["gui"] instance=ExtResource("4_vkbyq")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 6

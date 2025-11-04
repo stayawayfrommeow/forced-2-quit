@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://global.gd"
 Spawner="*res://scripts/slider_spawner.gd"
+SharksSpawner="*res://scripts/sharks_spawner.gd"
 
 [gui]
 

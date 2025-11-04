@@ -25,7 +25,7 @@ extends Node2D
 	set(t):
 		sprite_texture = t
 		$Sprite.texture = t
-		
+
 @export var glow_texture: Texture2D:
 	set(t):
 		glow_texture = t
@@ -91,7 +91,6 @@ func _ready():
 	_update_popup_position()
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
-
 
 
 	pass # Replace with function body.
@@ -198,6 +197,7 @@ func _on_animation_player_animation_finished(anim_name):
 
 func _on_timer_timeout() -> void:
 	Global.stress = event_penalty
+	SharksSpawner.create_head()
 	deactivate()
 
 func _on_comic_comic_ended():

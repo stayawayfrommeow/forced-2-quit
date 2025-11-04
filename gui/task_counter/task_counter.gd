@@ -33,6 +33,7 @@ var _cam_pos_prev: Vector2
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	upd_current_event(Global.current_events)   # или ваш массив заданий
+	pass
 	#if player.global_position != _cam_pos_prev:
 		#_cam_pos_prev = player.global_position
 		#_on_camera_moved()
@@ -76,7 +77,6 @@ func upd_current_event(events) -> void:
 		else:
 			if (right_out_view.size() > 0):
 				if has_urgent_outside(right_out_view):
-					print(right_out_view[0].time_left, has_urgent_outside(right_out_view))
 					label.blink_start()
 				else:
 					label.blink_stop()
@@ -86,6 +86,8 @@ func upd_current_event(events) -> void:
 			else:
 				self.visible = false
 
+	if events.size() == 0:
+		self.visible = false
 	#print("L-in: %d, R-in: %d, L-out: %d, R-out: %d" %
 		  #[left_in_view.size(), right_in_view.size(), left_out_view.size(), right_out_view.size()])
 

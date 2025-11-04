@@ -80,32 +80,32 @@ const events := [
 	[
 		{
 			"group": "cooler",
-			"lifetime": 120,
+			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 20,
-			"eventTimes": [10, 140],
+			"penalty": 2,
+			"eventTimes": [10, 200],
 			"name": "попитлз",
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "board",
-			"lifetime": 150,
+			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 200,
+			"penalty": 2,
 			"name": "новости?",
-			"eventTimes": [20, 400],
+			"eventTimes": [20, 200],
 			"instanse": event_instanses["board"]
 		},
 		{
 			"group": "computer",
-			"lifetime": 150,
+			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 200,
+			"penalty": 2,
 			"name": "чек почты",
-			"eventTimes": [30, 600],
+			"eventTimes": [30, 200],
 			"instanse": event_instanses["mail"]
 		},
 	],
@@ -116,7 +116,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Новости??",
 			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
@@ -126,7 +126,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 10,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Попить воду",
 			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
@@ -136,7 +136,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "спааам",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["mail"]
@@ -145,7 +145,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "протереть",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["polish"]
@@ -154,7 +154,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "полить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -167,7 +167,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Новости???",
 			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
@@ -177,7 +177,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 10,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Попить воду",
 			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
@@ -187,7 +187,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "спааам",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["mail"]
@@ -197,7 +197,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "протереть",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["polish"]
@@ -207,7 +207,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "полить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -217,7 +217,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "прошвырнуться",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["walk"]
@@ -227,7 +227,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "поксерить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -240,7 +240,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Новости????",
 			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
@@ -250,7 +250,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 10,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Попить воду",
 			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
@@ -260,7 +260,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "спааам",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["mail"]
@@ -270,7 +270,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "протереть",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["polish"]
@@ -280,7 +280,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "полить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -290,7 +290,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "прошвырнуться",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["walk"]
@@ -300,7 +300,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "поксерить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -310,7 +310,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "поговорить с другом",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["call"]
@@ -320,7 +320,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "!%№*?",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -333,7 +333,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 5,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Новости?????",
 			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
@@ -343,7 +343,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 10,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "Попить воду",
 			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
@@ -353,7 +353,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "спааам",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["mail"]
@@ -363,7 +363,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "протереть",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["polish"]
@@ -373,7 +373,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "полить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -383,7 +383,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "прошвырнуться",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["walk"]
@@ -393,7 +393,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "поксерить",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -403,7 +403,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "поговорить с другом",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["call"]
@@ -413,7 +413,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "!%№*?",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
@@ -423,7 +423,7 @@ const events := [
 			"lifetime": 50,
 			"stress": 20,
 			"bank": 50,
-			"penalty": 20,
+			"penalty": 2,
 			"name": "планёр0чка",
 			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["planerka"]
@@ -490,7 +490,6 @@ func delete_events(event):
 func remove_by_id(nodes, id: int) -> void:
 	# идём с конца, чтобы индексы не съехали
 	for i in range(nodes.size() - 1, -1, -1):
-		
 		if is_instance_valid(nodes[i]) and nodes[i].get_instance_id() == id:
 			nodes.remove_at(i)	
 
