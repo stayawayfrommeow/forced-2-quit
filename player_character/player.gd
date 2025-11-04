@@ -40,13 +40,11 @@ func _physics_process(delta):
 		
 			
 			if !_audio_player.playing:
-				print("walk")
 				_audio_player.play()
 			
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			_audio_player.stop()
-			print("stop")
 			anim.play('idle')
 
 
