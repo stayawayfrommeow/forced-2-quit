@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=38 format=3 uid="uid://dao0tn10xn2ar"]
 
 [ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
@@ -10,9 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bqvngo254c8b6" path="res://level/items/доска/доска объявлений свечение.png" id="7_m5ivw"]
 [ext_resource type="Texture2D" uid="uid://p1vgu6fycl2t" path="res://level/items/лифт/лифт.png" id="8_7jqyl"]
 [ext_resource type="Texture2D" uid="uid://xqsjmwypxi0q" path="res://level/items/компик/компик.png" id="9_m5ivw"]
-[ext_resource type="Texture2D" uid="uid://x0qujxlu8l2q" path="res://level/items/кулер/кулер свечение.png" id="9_sui6v"]
 [ext_resource type="Texture2D" uid="uid://da6idokffq7qx" path="res://level/items/планерка/стол для планёрки.png" id="10_sui6v"]
-[ext_resource type="Texture2D" uid="uid://dk5che2lf0ngm" path="res://level/items/лифт/лифт свечение.png" id="11_h74y2"]
 [ext_resource type="Texture2D" uid="uid://de1brj2i8ffqb" path="res://level/items/принтер/принтер.png" id="11_tv7ir"]
 [ext_resource type="Texture2D" uid="uid://dux6t6metc4i" path="res://level/items/шкаф/шкаф с наградами.png" id="12_kp5pi"]
 [ext_resource type="Texture2D" uid="uid://cn0awi6edselh" path="res://level/items/компик/компик свечение.png" id="13_7cdnq"]
@@ -23,8 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://1u50a3lccdce" path="res://level/items/цветок/цветок.png" id="16_o0wo3"]
 [ext_resource type="Texture2D" uid="uid://5l02w6x3wuf2" path="res://level/items/принтер/принтер свечение.png" id="17_u5n7q"]
 [ext_resource type="Texture2D" uid="uid://ddyinae7783ye" path="res://level/items/шкаф/шкаф с наградами свечение.png" id="19_qslh7"]
-[ext_resource type="Texture2D" uid="uid://c1yrjcoooc8mj" path="res://level/items/стол_босса/стол босса свечение.png" id="21_kdj2k"]
-[ext_resource type="Texture2D" uid="uid://drraubsd4jh" path="res://level/items/телефон/телефон свечение.png" id="23_s1aav"]
 [ext_resource type="Texture2D" uid="uid://ddow6vvx8rkgl" path="res://level/items/фото/фото свечение.png" id="25_xdahv"]
 [ext_resource type="Texture2D" uid="uid://bf3xtpwhyw5w3" path="res://level/items/цветок/цветок свечение.png" id="27_krw8e"]
 [ext_resource type="PackedScene" uid="uid://nh8i1650tgv0" path="res://characters/character.tscn" id="28_7cdnq"]
@@ -83,7 +80,7 @@ position = Vector2(442, 309)
 trigger_width = 240
 sprite_texture = ExtResource("6_44x8d")
 glow_texture = ExtResource("7_m5ivw")
-glow_scale = Vector2(0.5, 0.4)
+glow_scale = Vector2(0.6, 0.5)
 glow_offset = Vector2(-43, 41)
 sprite_size = Vector2(241, 171)
 popup_offset = Vector2(-37, -102)
@@ -92,9 +89,9 @@ popup_offset = Vector2(-37, -102)
 position = Vector2(844, 444)
 trigger_width = 88
 sprite_texture = ExtResource("7_ivpvi")
-glow_texture = ExtResource("9_sui6v")
-glow_scale = Vector2(0.3, 0.3)
-glow_offset = Vector2(58, -219)
+glow_texture = ExtResource("25_xdahv")
+glow_scale = Vector2(2, 2)
+glow_offset = Vector2(20, 0)
 sprite_size = Vector2(96, 301)
 popup_offset = Vector2(-37, -170)
 
@@ -102,9 +99,9 @@ popup_offset = Vector2(-37, -170)
 position = Vector2(681, 394)
 trigger_width = 203
 sprite_texture = ExtResource("8_7jqyl")
-glow_texture = ExtResource("11_h74y2")
-glow_scale = Vector2(0.5, 0.47)
-glow_offset = Vector2(-9, -96)
+glow_texture = ExtResource("25_xdahv")
+glow_scale = Vector2(3, 3)
+glow_offset = Vector2(0, -34)
 sprite_size = Vector2(219, 410)
 popup_offset = Vector2(-32, -223)
 
@@ -114,7 +111,7 @@ trigger_width = 100
 trigger_offset = -29
 sprite_texture = ExtResource("9_m5ivw")
 glow_texture = ExtResource("13_7cdnq")
-glow_scale = Vector2(0.45, 0.45)
+glow_scale = Vector2(0.6, 0.6)
 sprite_size = Vector2(169, 103)
 popup_offset = Vector2(-48, -73)
 
@@ -124,7 +121,7 @@ scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 140
 sprite_texture = ExtResource("10_sui6v")
 glow_texture = ExtResource("15_lsj08")
-glow_scale = Vector2(0.4, 0.4)
+glow_scale = Vector2(0.6, 0.6)
 glow_offset = Vector2(0, -225)
 sprite_size = Vector2(156, 154)
 popup_offset = Vector2(-36, -67)
@@ -135,8 +132,8 @@ scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 214
 sprite_texture = ExtResource("11_tv7ir")
 glow_texture = ExtResource("17_u5n7q")
-glow_scale = Vector2(0.4, 0.4)
-glow_offset = Vector2(0, -281)
+glow_scale = Vector2(0.6, 0.6)
+glow_offset = Vector2(0, -332)
 sprite_size = Vector2(225, 166)
 popup_offset = Vector2(-32, -101)
 
@@ -146,8 +143,8 @@ scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 126
 sprite_texture = ExtResource("12_kp5pi")
 glow_texture = ExtResource("19_qslh7")
-glow_scale = Vector2(0.5, 0.4)
-glow_offset = Vector2(-374, -58)
+glow_scale = Vector2(0.6, 0.4)
+glow_offset = Vector2(-435, -58)
 sprite_size = Vector2(348, 406)
 popup_offset = Vector2(-16, -200)
 
@@ -157,9 +154,9 @@ scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 368
 trigger_offset = -60
 sprite_texture = ExtResource("13_b7y0n")
-glow_texture = ExtResource("21_kdj2k")
-glow_scale = Vector2(0.46, 0.45)
-glow_offset = Vector2(-212, -197)
+glow_texture = ExtResource("15_lsj08")
+glow_scale = Vector2(1, 1)
+glow_offset = Vector2(-13, -239)
 sprite_size = Vector2(484, 290)
 sprite_offset = Vector2(1, 0)
 popup_offset = Vector2(-58, -6)
@@ -170,9 +167,9 @@ scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 64
 trigger_offset = -10
 sprite_texture = ExtResource("14_v4yay")
-glow_texture = ExtResource("23_s1aav")
-glow_scale = Vector2(0.45, 0.4)
-glow_offset = Vector2(-28, 0)
+glow_texture = ExtResource("25_xdahv")
+glow_scale = Vector2(1, 1)
+glow_offset = Vector2(-40, 6)
 sprite_size = Vector2(46, 63)
 popup_offset = Vector2(-42, -50)
 
@@ -183,7 +180,8 @@ trigger_width = 66
 trigger_offset = 28
 sprite_texture = ExtResource("15_xl7j7")
 glow_texture = ExtResource("25_xdahv")
-glow_scale = Vector2(0.4, 0.4)
+glow_scale = Vector2(1, 1)
+glow_offset = Vector2(50, 0)
 sprite_size = Vector2(50, 40)
 popup_offset = Vector2(-33, -36)
 
@@ -193,7 +191,7 @@ scale = Vector2(0.90859765, 1.1242692)
 trigger_width = 104
 sprite_texture = ExtResource("16_o0wo3")
 glow_texture = ExtResource("27_krw8e")
-glow_scale = Vector2(0.45, 0.4)
+glow_scale = Vector2(0.8, 0.8)
 sprite_size = Vector2(130, 90)
 popup_offset = Vector2(-23, -64)
 
