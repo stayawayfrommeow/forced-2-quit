@@ -3,18 +3,22 @@ extends Control
 
 var player: Node2D
 var camera: Camera2D
-const TIME_LEFT_ALERT = 5.0
+const TIME_LEFT_ALERT = 5
 
 enum ArrowSide { LEFT, RIGHT }
 @export var side: ArrowSide = ArrowSide.LEFT:
 	set(v):
 		side = v
-@onready var label = $ColorRect/Label
-@onready var label2 = $ColorRect/Label2
+@onready var label = $Sprite2D/Label
+@onready var sprite = $Sprite2D
+var tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.upd_current_event.connect(upd_current_event)
+	if side == ArrowSide.RIGHT:
+		sprite.flip_h = true
+		label.offset_right += -65
 	
 	player = get_tree().get_first_node_in_group("player")
 	camera = get_tree().get_first_node_in_group("main_camera")
@@ -61,9 +65,9 @@ func upd_current_event(events) -> void:
 		if (side == ArrowSide.LEFT):
 			if (left_out_view.size() > 0):
 				if has_urgent_outside(left_out_view):
-					label2.text = "*"
+					label.blink_start()
 				else:
-					label2.text = ""
+					label.blink_stop()
 				
 				self.visible = true
 				label.text = str(left_out_view.size())
@@ -72,9 +76,10 @@ func upd_current_event(events) -> void:
 		else:
 			if (right_out_view.size() > 0):
 				if has_urgent_outside(right_out_view):
-					label2.text = "*"
+					print(right_out_view[0].time_left, has_urgent_outside(right_out_view))
+					label.blink_start()
 				else:
-					label2.text = ""
+					label.blink_stop()
 				
 				self.visible = true
 				label.text = str(right_out_view.size())
@@ -86,9 +91,11 @@ func upd_current_event(events) -> void:
 
 func has_urgent_outside(out_view) -> bool:
 	for item in out_view:
-		if item.time_left < TIME_LEFT_ALERT:
+		if item.time_left < TIME_LEFT_ALERT and item.time_left != 0:
 			return true
 	return false
+
+
 
 func _get_camera_rect() -> Rect2:
 	var vp_size := get_viewport().get_visible_rect().size

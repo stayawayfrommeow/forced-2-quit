@@ -1,7 +1,19 @@
-[gd_scene load_steps=97 format=3 uid="uid://co5yrplpv2qo6"]
+[gd_scene load_steps=109 format=3 uid="uid://co5yrplpv2qo6"]
 
 [ext_resource type="Script" uid="uid://cn8cgscmcovvl" path="res://player_character/player.gd" id="1_4wxsw"]
 [ext_resource type="Texture2D" uid="uid://irv806yerv1e" path="res://player_character/Hero_Sprite_Walk.png" id="2_4wxsw"]
+[ext_resource type="Texture2D" uid="uid://cgxybfy0jme4d" path="res://player_character/actionAnimation/6.png" id="3_rp1qg"]
+[ext_resource type="Texture2D" uid="uid://dcjgnd33uvqwo" path="res://player_character/actionAnimation/7.png" id="4_etvqk"]
+[ext_resource type="Texture2D" uid="uid://bwkvcfe61uk55" path="res://player_character/actionAnimation/8.png" id="5_elu08"]
+[ext_resource type="Texture2D" uid="uid://bk5f8g3dfmos1" path="res://player_character/actionAnimation/9.png" id="6_ldjn8"]
+[ext_resource type="Texture2D" uid="uid://k2u35802bp3j" path="res://player_character/actionAnimation/10.png" id="7_gqymd"]
+[ext_resource type="Texture2D" uid="uid://cqe4t8kps18gi" path="res://player_character/actionAnimation/11.png" id="8_75u16"]
+[ext_resource type="Texture2D" uid="uid://dls241lmg8evc" path="res://player_character/actionAnimation/12.png" id="9_u77as"]
+[ext_resource type="Texture2D" uid="uid://vx7wmjusobg2" path="res://player_character/actionAnimation/1.png" id="10_yfi8g"]
+[ext_resource type="Texture2D" uid="uid://cfaa01gy14l5r" path="res://player_character/actionAnimation/2.png" id="11_ynheu"]
+[ext_resource type="Texture2D" uid="uid://h4ogbtrahc7r" path="res://player_character/actionAnimation/3.png" id="12_sexb0"]
+[ext_resource type="Texture2D" uid="uid://b7mvdvk1grkbr" path="res://player_character/actionAnimation/4.png" id="13_7dsj3"]
+[ext_resource type="Texture2D" uid="uid://b17ly5anhkqt8" path="res://player_character/actionAnimation/5.png" id="14_lddcu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fay0u"]
 atlas = ExtResource("2_4wxsw")
@@ -637,6 +649,52 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 60.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rp1qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_etvqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_elu08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ldjn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gqymd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_75u16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u77as")
+}],
+"loop": true,
+"name": &"work_active",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yfi8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ynheu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sexb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7dsj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_lddcu")
+}],
+"loop": true,
+"name": &"work_start",
+"speed": 30.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5ann"]
@@ -710,8 +768,10 @@ script = ExtResource("1_4wxsw")
 position = Vector2(-1, 0)
 rotation = 0.00966455
 sprite_frames = SubResource("SpriteFrames_fay0u")
-animation = &"walk"
-speed_scale = 0.505
+animation = &"work_start"
+frame = 4
+frame_progress = 0.033596907
+speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -721,3 +781,6 @@ shape = SubResource("CapsuleShape2D_n5ann")
 libraries = {
 &"": SubResource("AnimationLibrary_n5ann")
 }
+
+[node name="worktimer" type="Timer" parent="."]
+one_shot = true

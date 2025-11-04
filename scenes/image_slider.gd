@@ -36,7 +36,9 @@ func _gui_input(ev: InputEvent) -> void:
 func _input(ev: InputEvent) -> void:
 	if ev is InputEventKey and ev.pressed and ev.keycode == KEY_SPACE:
 		_next()
-		get_viewport().set_input_as_handled() # чтобы Space не дошёл до других узлов
+		
+		if (get_viewport()):
+			get_viewport().set_input_as_handled() # чтобы Space не дошёл до других узлов
 
 func _next() -> void:
 	if _busy: return

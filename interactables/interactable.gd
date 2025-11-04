@@ -4,8 +4,7 @@ extends Node2D
 
 #@export_group("glow")
 @export var glow_sprite: Sprite2D
-@export var anim_player: AnimationPlayer
-@export var animation_name := "glow"
+@export var animation_name := "pulsing_rapid"
 
 @export var trigger_width: int:
 	set(t):
@@ -60,8 +59,6 @@ extends Node2D
 
 #тут инициация переменных сцены
 @onready var interact_popup = $Interact_popup
-@onready var gj_popup = $gj_popup
-@onready var animations = $Interact_popup/AnimationPlayer
 @onready var player_near = false
 @onready var activate_timer = $activate_timer
 @onready var glow_image = $Glow
@@ -90,14 +87,12 @@ func _ready():
 	else:
 		await get_tree().process_frame
 		_update_sprite_scale()
-	
-	#start_glow()
-	
-	animGlow.play('pulsing_rapid')
-	
+	animGlow.play("pulsing_rapid")
+	_update_popup_position()
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
-	gj_popup.visible = false
+
+
 
 	pass # Replace with function body.
 
@@ -113,14 +108,24 @@ func _update_sprite_scale() -> void:
 func _process(delta):
 	time_left = activate_timer.time_left
 	pass
-
+	
 func start_glow() -> void:
-	if not anim_player or not anim_player.has_animation(animation_name): return
-	anim_player.play(animation_name)
+	return
+	animGlow.play(animation_name)
 
 func stop_glow() -> void:
-	anim_player.stop()
-	if glow_sprite: glow_sprite.modulate = Color.WHITE   # сброс
+	return
+	animGlow.stop(animation_name)
+
+@export var popup_offset: Vector2 = Vector2(0, -50):  # смещение вверх на 50 px
+	set(v):
+		popup_offset = v
+		_update_popup_position()
+
+func _update_popup_position() -> void:
+	if not interact_popup:
+		return
+	interact_popup.position = popup_offset
 
 #что происходит на интеракт
 func _input(event: InputEvent): 
@@ -135,7 +140,7 @@ func _input(event: InputEvent):
 				Spawner.show_slider(event_images, event_sound)
 				Global.add_readed_comics(event_id)
 			else:
-				%Player.do_backflip()
+				%Player.do_work(2)
 
 			#comic.emit_signal('comic_start')
 		deactivate()
@@ -165,6 +170,7 @@ func deactivate():
 	interact_popup.visible = false
 	activate_timer.stop()
 	glow_image.visible = false
+	stop_glow()
 	Global.delete_events(self)
 	
 func _on_area_2d_body_entered(body):
@@ -174,10 +180,7 @@ func _on_area_2d_body_entered(body):
 
 func _update_popup():
 	interact_popup.visible = player_near and activated
-	if player_near and activated:
-		animations.play("popup_enter")
-	else:
-		animations.play("popup_escape")
+	_update_popup_position()  # обновляем позицию
 
 
 func _on_area_2d_body_exited(body):
