@@ -39,6 +39,9 @@ func _on_timer_timeout():
 	
 	Global.generate_events(total_time)
 	
+	if (total_time > 500 and Global.day == 5):
+		Global.end_the_game()
+	
 	if (total_time > 540):
 		Global.end_current_day()
 	pass # Replace with function body.

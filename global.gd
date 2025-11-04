@@ -12,74 +12,67 @@ var stressbar = "res://stressbar/stressbar.tscn"
 const event_instanses = {
 	"board": {
 		"id": "board",
-		"name": "Посмотреть на доску",
+		"name": "Доска объявлений",
+		"quick_sound": "res://assets/sounds/events/board.mp3",
 		"images": [
-			"res://assets/comics/comics_1/1.png",
-			"res://assets/comics/comics_1/2.jpg",
-			"res://assets/comics/comics_1/5.jpg",
+			"res://assets/comics/comics_2/1.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav",
-		"quick_sound": "res://assets/sounds/events/board.wav"
+		"sound": "res://assets/sounds/comics/board/1.mp3",
 	},
 	"trade": {
 		"id": "trade",
-		"name": "потрейдить",
+		"name": "Трейдить на бирже",
 		"images": [
-			"res://assets/comics/comics_1/4.png",
+			"res://assets/comics/trade/1.png",
+			"res://assets/comics/trade/2.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav",
-		"quick_sound": "res://assets/sounds/events/board.wav"
+		"sound": "res://assets/sounds/comics/trade/1.mp3",
+		"quick_sound": "res://assets/sounds/events/trade.mp3",
 	},
 	"walk": {
 		"id": "walk",
-		"name": "прошвырнуться",
-		"images": [
-			"res://assets/comics/comics_1/4.png",
-		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav",
-		"quick_sound": "res://assets/sounds/events/board.wav"
+		"name": "Погуляться",
+		"quick_sound": "res://assets/sounds/events/walk.mp3",
+	},
+	"print": {
+		"id": "print",
+		"name": "Распечатать документы",
+		"quick_sound": "res://assets/sounds/events/print.mp3",
 	},
 	"planerka": {
 		"id": "planerka",
-		"name": "планёрка",
-		"images": [
-			"res://assets/comics/comics_1/4.png",
-		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav",
-		"quick_sound": "res://assets/sounds/events/board.wav"
+		"name": "Совещание",
+		"quick_sound": "res://assets/sounds/events/planerka.mp3",
 	},
 	"call": {
 		"id": "call",
-		"name": "позвонить другу",
-		"images": [
-			"res://assets/comics/comics_1/4.png",
-		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav",
-		"quick_sound": "res://assets/sounds/events/board.wav"
+		"name": "Позвонить друзьям",
+		"quick_sound": "res://assets/sounds/events/call.mp3",
 	},
 	"motivate": {
 		"id": "motivate",
-		"name": "делай это ради них",
-		"images": [
-			"res://assets/comics/comics_1/4.png",
-		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav",
-		"quick_sound": "res://assets/sounds/events/board.wav"
+		"name": "Попить воды",
+		"quick_sound": "res://assets/sounds/events/motivate.wav",
+	},
+	"boss": {
+		"id": "motivate",
+		"name": "Получить выговор",
+		"quick_sound": "res://assets/sounds/events/boss.mp3",
 	},
 	"polish": {
 		"id": "polish",
-		"name": "до блеска!",
-		"images": [
-			"res://assets/comics/comics_1/4.png",
-		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav",
-		"quick_sound": "res://assets/sounds/events/board.wav"
+		"name": "Протереть награды...",
+		"quick_sound": "res://assets/sounds/events/polish.mp3",
+	},
+	"photo": {
+		"id": "photo",
+		"name": "Родное гнездо...",
+		"quick_sound": "res://assets/sounds/events/photo.mp3",
 	},
 	"nocomics": {
 		"id": "nocomics",
-		"name": "Без комикса",
-		"images": [
-		],
+		"name": "Полить цветок",
+		"quick_sound": "res://assets/sounds/events/nocomics.mp3",
 	},
 }
 
@@ -153,7 +146,7 @@ const events := [
 			"eventTimes": [1, 100, 200, 300, 400, 500],
 
 			"name": "Попить воду",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["motivate"]
 		},
 		{
 			"group": "computer",
@@ -177,7 +170,7 @@ const events := [
 			"eventTimes": [180, 440],
 
 			"name": "протереть",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["polish"]
 		},{
 			"group": "flower",
 
@@ -215,7 +208,7 @@ const events := [
 			"eventTimes": [80, 220, 340, 460],
 
 			"name": "Попить воду",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["motivate"]
 		},
 		{
 			"group": "computer",
@@ -238,7 +231,7 @@ const events := [
 			"lifetime": 160,
 			"eventTimes": [200, 440],
 			"name": "протереть",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["polish"]
 		},
 		{
 			"group": "flower",
@@ -271,7 +264,7 @@ const events := [
 			"eventTimes": [100, 300],
 
 			"name": "поксерить",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["print"]
 		},
 	],
 	#DAY 4
@@ -298,7 +291,7 @@ const events := [
 			"eventTimes": [100, 240, 380, 500],
 
 			"name": "Попить воду",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["motivate"]
 		},
 		{
 			"group": "computer",
@@ -320,7 +313,7 @@ const events := [
 			"eventTimes": [260, 480],
 
 			"name": "протереть",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["polish"]
 		},
 		{
 			"group": "flower",
@@ -356,7 +349,7 @@ const events := [
 			"eventTimes": [120, 320],
 
 			"name": "поксерить",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["print"]
 		},
 		{
 			"group": "phone",
@@ -367,7 +360,7 @@ const events := [
 			"lifetime": 100,
 			"eventTimes": [140, 280, 460],
 			"name": "ало?",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["call"]
 		},
 		{
 			"group": "boss",
@@ -378,7 +371,7 @@ const events := [
 			"eventTimes": [220, 440],
 
 			"name": "!%№*?",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["boss"]
 		},
 		{
 			"group": "planerka",
@@ -415,7 +408,7 @@ const events := [
 			"eventTimes": [130, 210, 290, 370, 450, 530],
 
 			"name": "Попить воду",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["motivate"]
 		},
 		{
 			"group": "computer",
@@ -439,7 +432,7 @@ const events := [
 			"eventTimes": [160, 320, 480],
 
 			"name": "протереть",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["polish"]
 		},
 		{
 			"group": "flower",
@@ -475,7 +468,7 @@ const events := [
 			"eventTimes": [60, 140, 220, 300, 380],
 
 			"name": "поксерить",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["print"]
 		},
 		{
 			"group": "phone",
@@ -486,7 +479,7 @@ const events := [
 			"lifetime": 60,
 			"eventTimes": [90, 170, 250, 330, 410, 490],
 			"name": "ответить на звонок",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["call"]
 		},
 		{
 			 "group": "boss",
@@ -497,7 +490,7 @@ const events := [
 			"eventTimes": [120, 240, 360, 440],
 
 			"name": "!%№*?",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["boss"]
 		},
 		{
 			"group": "planerka",
@@ -519,12 +512,18 @@ const events := [
 			"lifetime": 60,
 			"eventTimes": [150, 310, 470],
 			"name": "do it for...",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["photo"]
 		},
 	]
 ]
 
-const endingImages := ["res://assets/comics/comics_1/1.png","res://assets/comics/comics_1/2.jpg","res://assets/comics/comics_1/5.jpg"]
+const endingImages := [
+	"res://assets/comics/final/0.png",
+	"res://assets/comics/final/1.png",
+	"res://assets/comics/final/2.png",
+	"res://assets/comics/final/3.png",
+	"res://assets/comics/final/4.png",	
+	]
 const endingSound := "res://assets/sounds/comics/comics_1/1.wav"
 
 var MAX_STRESS = 100

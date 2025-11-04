@@ -1,36 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://oehe5srcejey"]
+[gd_scene load_steps=3 format=3 uid="uid://oehe5srcejey"]
 
 [ext_resource type="Script" uid="uid://dycawr6cyjnyc" path="res://starting_letter/starting_letter.gd" id="1_odxem"]
-[ext_resource type="Texture2D" uid="uid://c70rfemuckpsl" path="res://day1/sprt_lvl_layout.png" id="1_qhkex"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_odxem"]
-font_color = Color(0.5106486, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://dkaus17py8pf1" path="res://assets/comics/start/5.png" id="2_odxem"]
 
 [node name="StartingLetter" type="Node2D"]
 script = ExtResource("1_odxem")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(544, 292.99997)
-scale = Vector2(6.53125, 6.53125)
-texture = ExtResource("1_qhkex")
-region_enabled = true
-region_rect = Rect2(217.26308, 74.39568, 199.78148, 112.15803)
-
-[node name="Label" type="Label" parent="."]
-offset_left = 316.0
-offset_top = 186.0
-offset_right = 356.0
-offset_bottom = 209.0
-text = "go work.
-a d space - contorls
-blah blah blah"
-label_settings = SubResource("LabelSettings_odxem")
-
-[node name="Button" type="Button" parent="."]
-offset_left = 319.0
-offset_top = 269.0
-offset_right = 488.0
-offset_bottom = 310.0
-text = "work. day1"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+position = Vector2(577.00006, 324.25003)
+scale = Vector2(0.45078123, 0.4482639)
+texture = ExtResource("2_odxem")
