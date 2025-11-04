@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dao0tn10xn2ar"]
+[gd_scene load_steps=38 format=3 uid="uid://dao0tn10xn2ar"]
 
 [ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
 [ext_resource type="Texture2D" uid="uid://bjg80rs3aguub" path="res://level/level_layout.png" id="2_5gx2l"]
@@ -33,6 +33,9 @@
 [ext_resource type="Texture2D" uid="uid://ea4s47wdrarf" path="res://assets/characters/Hare_Static.png" id="31_qslh7"]
 [ext_resource type="Texture2D" uid="uid://pg7cregcdsxr" path="res://assets/characters/Barsik_Static.png" id="32_s1aav"]
 [ext_resource type="Texture2D" uid="uid://h7vhk40yrunw" path="res://assets/characters/Fox_Static.png" id="33_xdahv"]
+[ext_resource type="AudioStream" uid="uid://dhl4on0266qve" path="res://assets/sounds/location/elevator.mp3" id="34_ifo17"]
+[ext_resource type="AudioStream" uid="uid://cf312rsrhbh6u" path="res://assets/sounds/location/boss.mp3" id="35_q4dhf"]
+[ext_resource type="AudioStream" uid="uid://deuhugseikba2" path="res://assets/sounds/location/office.mp3" id="36_u1dsc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkbyq"]
 size = Vector2(20, 308)
@@ -207,12 +210,6 @@ position = Vector2(4495, -11)
 position = Vector2(-84, 391)
 shape = SubResource("RectangleShape2D_vkbyq")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2(2249, 187)
-volume_db = 1.0
-autoplay = true
-playback_type = 1
-
 [node name="shark" parent="." instance=ExtResource("28_7cdnq")]
 position = Vector2(4116, 437)
 rotation = 0.010471975
@@ -239,3 +236,27 @@ sprite_texture = ExtResource("32_s1aav")
 position = Vector2(1190, 438)
 sprite_size = Vector2(474, 450)
 sprite_texture = ExtResource("33_xdahv")
+
+[node name="ElevatorPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(521, 201)
+stream = ExtResource("34_ifo17")
+volume_db = 0.1
+autoplay = true
+max_distance = 800.0
+playback_type = 1
+
+[node name="BossRoomPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(3745, 244)
+stream = ExtResource("35_q4dhf")
+volume_db = 0.1
+autoplay = true
+max_distance = 700.0
+playback_type = 1
+
+[node name="OfficePlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2249, 187)
+stream = ExtResource("36_u1dsc")
+volume_db = 0.1
+autoplay = true
+max_distance = 900.0
+playback_type = 1

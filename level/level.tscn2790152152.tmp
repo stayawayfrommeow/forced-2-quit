@@ -1,0 +1,241 @@
+[gd_scene load_steps=35 format=3 uid="uid://dao0tn10xn2ar"]
+
+[ext_resource type="PackedScene" uid="uid://co5yrplpv2qo6" path="res://player_character/player.tscn" id="1_7lnir"]
+[ext_resource type="Texture2D" uid="uid://bjg80rs3aguub" path="res://level/level_layout.png" id="2_5gx2l"]
+[ext_resource type="PackedScene" uid="uid://ddtvttl6lwx85" path="res://gui/gui.tscn" id="4_vkbyq"]
+[ext_resource type="PackedScene" uid="uid://v5wfel75jq1h" path="res://interactables/interactable.tscn" id="5_44x8d"]
+[ext_resource type="Texture2D" uid="uid://dtwdgbrq144l1" path="res://level/column.png" id="5_ktfr2"]
+[ext_resource type="Texture2D" uid="uid://7416kgvrvkbh" path="res://level/items/доска/доска объявлений.png" id="6_44x8d"]
+[ext_resource type="Texture2D" uid="uid://n11kjqxdoc0h" path="res://level/items/кулер/кулер.png" id="7_ivpvi"]
+[ext_resource type="Texture2D" uid="uid://bqvngo254c8b6" path="res://level/items/доска/доска объявлений свечение.png" id="7_m5ivw"]
+[ext_resource type="Texture2D" uid="uid://p1vgu6fycl2t" path="res://level/items/лифт/лифт.png" id="8_7jqyl"]
+[ext_resource type="Texture2D" uid="uid://xqsjmwypxi0q" path="res://level/items/компик/компик.png" id="9_m5ivw"]
+[ext_resource type="Texture2D" uid="uid://x0qujxlu8l2q" path="res://level/items/кулер/кулер свечение.png" id="9_sui6v"]
+[ext_resource type="Texture2D" uid="uid://da6idokffq7qx" path="res://level/items/планерка/стол для планёрки.png" id="10_sui6v"]
+[ext_resource type="Texture2D" uid="uid://dk5che2lf0ngm" path="res://level/items/лифт/лифт свечение.png" id="11_h74y2"]
+[ext_resource type="Texture2D" uid="uid://de1brj2i8ffqb" path="res://level/items/принтер/принтер.png" id="11_tv7ir"]
+[ext_resource type="Texture2D" uid="uid://dux6t6metc4i" path="res://level/items/шкаф/шкаф с наградами.png" id="12_kp5pi"]
+[ext_resource type="Texture2D" uid="uid://cn0awi6edselh" path="res://level/items/компик/компик свечение.png" id="13_7cdnq"]
+[ext_resource type="Texture2D" uid="uid://b5v3lmrxal66f" path="res://level/items/стол_босса/стол босса.png" id="13_b7y0n"]
+[ext_resource type="Texture2D" uid="uid://0qa0k0k5k5fx" path="res://level/items/телефон/телефон.png" id="14_v4yay"]
+[ext_resource type="Texture2D" uid="uid://4yt071hln0xa" path="res://level/items/планерка/стол для планёрки свечение_.png" id="15_lsj08"]
+[ext_resource type="Texture2D" uid="uid://bncpk14tmkstx" path="res://level/items/фото/фото.png" id="15_xl7j7"]
+[ext_resource type="Texture2D" uid="uid://1u50a3lccdce" path="res://level/items/цветок/цветок.png" id="16_o0wo3"]
+[ext_resource type="Texture2D" uid="uid://5l02w6x3wuf2" path="res://level/items/принтер/принтер свечение.png" id="17_u5n7q"]
+[ext_resource type="Texture2D" uid="uid://ddyinae7783ye" path="res://level/items/шкаф/шкаф с наградами свечение.png" id="19_qslh7"]
+[ext_resource type="Texture2D" uid="uid://c1yrjcoooc8mj" path="res://level/items/стол_босса/стол босса свечение.png" id="21_kdj2k"]
+[ext_resource type="Texture2D" uid="uid://drraubsd4jh" path="res://level/items/телефон/телефон свечение.png" id="23_s1aav"]
+[ext_resource type="Texture2D" uid="uid://ddow6vvx8rkgl" path="res://level/items/фото/фото свечение.png" id="25_xdahv"]
+[ext_resource type="Texture2D" uid="uid://bf3xtpwhyw5w3" path="res://level/items/цветок/цветок свечение.png" id="27_krw8e"]
+[ext_resource type="PackedScene" uid="uid://nh8i1650tgv0" path="res://characters/character.tscn" id="28_7cdnq"]
+[ext_resource type="Texture2D" uid="uid://bs3wsim1cgfil" path="res://assets/characters/Shark_Static.png" id="29_lsj08"]
+[ext_resource type="Texture2D" uid="uid://bbvll1xye72yu" path="res://assets/characters/Ant_Static.png" id="30_u5n7q"]
+[ext_resource type="Texture2D" uid="uid://ea4s47wdrarf" path="res://assets/characters/Hare_Static.png" id="31_qslh7"]
+[ext_resource type="Texture2D" uid="uid://pg7cregcdsxr" path="res://assets/characters/Barsik_Static.png" id="32_s1aav"]
+[ext_resource type="Texture2D" uid="uid://h7vhk40yrunw" path="res://assets/characters/Fox_Static.png" id="33_xdahv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkbyq"]
+size = Vector2(20, 308)
+
+[node name="Level" type="Node2D"]
+position = Vector2(2, -1)
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("1_7lnir")]
+unique_name_in_owner = true
+z_index = 5
+position = Vector2(677, 448)
+scale = Vector2(0.46, 0.46)
+
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["main_camera"]]
+position = Vector2(10.869602, -267.39133)
+process_callback = 0
+limit_left = -219
+limit_right = 4491
+position_smoothing_enabled = true
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scale = Vector2(0.46, 0.46)
+scroll_offset = Vector2(1109, 179)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+position = Vector2(2222, 363)
+texture = ExtResource("2_5gx2l")
+
+[node name="Gui" parent="." groups=["gui"] instance=ExtResource("4_vkbyq")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(1442.9999, 349)
+scale = Vector2(0.4501069, 0.4709578)
+texture = ExtResource("5_ktfr2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(3017.9998, 347.99997)
+scale = Vector2(0.4501069, 0.4709578)
+texture = ExtResource("5_ktfr2")
+
+[node name="board" parent="." groups=["board", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(442, 309)
+trigger_width = 240
+sprite_texture = ExtResource("6_44x8d")
+glow_texture = ExtResource("7_m5ivw")
+glow_scale = Vector2(0.5, 0.4)
+glow_offset = Vector2(-43, 41)
+sprite_size = Vector2(241, 171)
+popup_offset = Vector2(-37, -102)
+
+[node name="cooler" parent="." groups=["cooler", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(844, 444)
+trigger_width = 88
+sprite_texture = ExtResource("7_ivpvi")
+glow_texture = ExtResource("9_sui6v")
+glow_scale = Vector2(0.3, 0.3)
+glow_offset = Vector2(58, -219)
+sprite_size = Vector2(96, 301)
+popup_offset = Vector2(-37, -170)
+
+[node name="lift" parent="." groups=["items", "lift"] instance=ExtResource("5_44x8d")]
+position = Vector2(681, 394)
+trigger_width = 203
+sprite_texture = ExtResource("8_7jqyl")
+glow_texture = ExtResource("11_h74y2")
+glow_scale = Vector2(0.5, 0.47)
+glow_offset = Vector2(-9, -96)
+sprite_size = Vector2(219, 410)
+popup_offset = Vector2(-32, -223)
+
+[node name="computer" parent="." groups=["computer", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(2439, 427)
+trigger_width = 100
+trigger_offset = -29
+sprite_texture = ExtResource("9_m5ivw")
+glow_texture = ExtResource("13_7cdnq")
+glow_scale = Vector2(0.45, 0.45)
+sprite_size = Vector2(169, 103)
+popup_offset = Vector2(-48, -73)
+
+[node name="planerka" parent="." groups=["items", "planerka"] instance=ExtResource("5_44x8d")]
+position = Vector2(3605.9998, 509.99997)
+scale = Vector2(0.90859765, 1.1242692)
+trigger_width = 140
+sprite_texture = ExtResource("10_sui6v")
+glow_texture = ExtResource("15_lsj08")
+glow_scale = Vector2(0.4, 0.4)
+glow_offset = Vector2(0, -225)
+sprite_size = Vector2(156, 154)
+popup_offset = Vector2(-36, -67)
+
+[node name="printer" parent="." groups=["items", "printer"] instance=ExtResource("5_44x8d")]
+position = Vector2(1703.9999, 504.99997)
+scale = Vector2(0.90859765, 1.1242692)
+trigger_width = 214
+sprite_texture = ExtResource("11_tv7ir")
+glow_texture = ExtResource("17_u5n7q")
+glow_scale = Vector2(0.4, 0.4)
+glow_offset = Vector2(0, -281)
+sprite_size = Vector2(225, 166)
+popup_offset = Vector2(-32, -101)
+
+[node name="closet" parent="." groups=["closet", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(4338.9995, 367.00003)
+scale = Vector2(0.90859765, 1.1242692)
+trigger_width = 126
+sprite_texture = ExtResource("12_kp5pi")
+glow_texture = ExtResource("19_qslh7")
+glow_scale = Vector2(0.5, 0.4)
+glow_offset = Vector2(-374, -58)
+sprite_size = Vector2(348, 406)
+popup_offset = Vector2(-16, -200)
+
+[node name="boss" parent="." groups=["boss", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(4133, 436.99997)
+scale = Vector2(0.90859765, 1.1242692)
+trigger_width = 368
+trigger_offset = -60
+sprite_texture = ExtResource("13_b7y0n")
+glow_texture = ExtResource("21_kdj2k")
+glow_scale = Vector2(0.46, 0.45)
+glow_offset = Vector2(-212, -197)
+sprite_size = Vector2(484, 290)
+sprite_offset = Vector2(1, 0)
+popup_offset = Vector2(-58, -6)
+
+[node name="phone" parent="." groups=["items", "phone"] instance=ExtResource("5_44x8d")]
+position = Vector2(2332.9998, 436.99997)
+scale = Vector2(0.90859765, 1.1242692)
+trigger_width = 64
+trigger_offset = -10
+sprite_texture = ExtResource("14_v4yay")
+glow_texture = ExtResource("23_s1aav")
+glow_scale = Vector2(0.45, 0.4)
+glow_offset = Vector2(-28, 0)
+sprite_size = Vector2(46, 63)
+popup_offset = Vector2(-42, -50)
+
+[node name="photo" parent="." groups=["items", "photo"] instance=ExtResource("5_44x8d")]
+position = Vector2(2467.9998, 454.99997)
+scale = Vector2(0.90859765, 1.1242692)
+trigger_width = 66
+trigger_offset = 28
+sprite_texture = ExtResource("15_xl7j7")
+glow_texture = ExtResource("25_xdahv")
+glow_scale = Vector2(0.4, 0.4)
+sprite_size = Vector2(50, 40)
+popup_offset = Vector2(-33, -36)
+
+[node name="flower" parent="." groups=["flower", "items"] instance=ExtResource("5_44x8d")]
+position = Vector2(2816, 437.99997)
+scale = Vector2(0.90859765, 1.1242692)
+trigger_width = 104
+sprite_texture = ExtResource("16_o0wo3")
+glow_texture = ExtResource("27_krw8e")
+glow_scale = Vector2(0.45, 0.4)
+sprite_size = Vector2(130, 90)
+popup_offset = Vector2(-23, -64)
+
+[node name="lvl_boundary_left" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl_boundary_left"]
+position = Vector2(-84, 391)
+shape = SubResource("RectangleShape2D_vkbyq")
+
+[node name="lvl_boundary_right" type="StaticBody2D" parent="."]
+position = Vector2(4495, -11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lvl_boundary_right"]
+position = Vector2(-84, 391)
+shape = SubResource("RectangleShape2D_vkbyq")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2249, 187)
+volume_db = 1.0
+autoplay = true
+playback_type = 1
+
+[node name="shark" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(4116, 437)
+rotation = 0.010471975
+sprite_size = Vector2(300, 300)
+sprite_offset = Vector2(150, -300)
+sprite_texture = ExtResource("29_lsj08")
+
+[node name="ant" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(2092, 445)
+sprite_size = Vector2(474, 450)
+sprite_texture = ExtResource("30_u5n7q")
+
+[node name="bunny" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(924, 433)
+sprite_size = Vector2(474, 450)
+sprite_texture = ExtResource("31_qslh7")
+
+[node name="barsik" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(2720, 444)
+sprite_size = Vector2(474, 450)
+sprite_texture = ExtResource("32_s1aav")
+
+[node name="fox" parent="." instance=ExtResource("28_7cdnq")]
+position = Vector2(1190, 438)
+sprite_size = Vector2(474, 450)
+sprite_texture = ExtResource("33_xdahv")

@@ -18,7 +18,8 @@ const event_instanses = {
 			"res://assets/comics/comics_1/2.jpg",
 			"res://assets/comics/comics_1/5.jpg",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+		"sound": "res://assets/sounds/comics/comics_1/1.wav",
+		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
 	"mail": {
 		"id": "mail",
@@ -26,7 +27,8 @@ const event_instanses = {
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+		"sound": "res://assets/sounds/comics/comics_1/1.wav",
+		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
 	"walk": {
 		"id": "walk",
@@ -34,7 +36,8 @@ const event_instanses = {
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+		"sound": "res://assets/sounds/comics/comics_1/1.wav",
+		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
 	"planerka": {
 		"id": "planerka",
@@ -42,7 +45,8 @@ const event_instanses = {
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+		"sound": "res://assets/sounds/comics/comics_1/1.wav",
+		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
 	"call": {
 		"id": "call",
@@ -50,7 +54,8 @@ const event_instanses = {
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+		"sound": "res://assets/sounds/comics/comics_1/1.wav",
+		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
 	"motivate": {
 		"id": "motivate",
@@ -58,7 +63,8 @@ const event_instanses = {
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+		"sound": "res://assets/sounds/comics/comics_1/1.wav",
+		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
 	"polish": {
 		"id": "polish",
@@ -66,7 +72,8 @@ const event_instanses = {
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
-		"sound": "res://assets/sounds/comics/comics_1/1.wav"
+		"sound": "res://assets/sounds/comics/comics_1/1.wav",
+		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
 	"nocomics": {
 		"id": "nocomics",
@@ -92,9 +99,9 @@ const events := [
 			"stress": 5,
 			"bank": 50,
 			"penalty": 2,
-			"eventTimes": [10, 200],
+			"eventTimes": [10, 100],
 			"name": "попитлз",
-			"instanse": event_instanses["nocomics"]
+			"instanse": event_instanses["motivate"]
 		},
 		{
 			"group": "board",
@@ -103,7 +110,7 @@ const events := [
 			"bank": 50,
 			"penalty": 2,
 			"name": "новости?",
-			"eventTimes": [20, 200],
+			"eventTimes": [20, 100],
 			"instanse": event_instanses["board"]
 		},
 		{

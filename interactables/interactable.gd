@@ -78,7 +78,13 @@ var event_bank = 0
 var event_stress = 0
 var event_images = []
 var event_sound = ""
+var event_quick_sound = ""
+
 var event_id = ""
+
+var _audio_stream: AudioStream
+var _audio_player: AudioStreamPlayer
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -92,7 +98,9 @@ func _ready():
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
 
-
+	_audio_player = AudioStreamPlayer.new()
+	add_child(_audio_player)
+	_audio_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	pass # Replace with function body.
 
 func _update_sprite_scale() -> void:
@@ -141,6 +149,21 @@ func _input(event: InputEvent):
 				Global.add_readed_comics(event_id)
 			else:
 				%Player.do_work(2)
+				
+				if event_quick_sound and not event_quick_sound.is_empty():
+					_audio_stream = load(event_quick_sound)
+					
+					if _audio_stream:
+						_audio_player.stream = _audio_stream
+						_audio_player.play()
+						
+						var tween = create_tween().set_loops(1)
+						tween.tween_property(_audio_player, "volume_db", 0, 0)
+						tween.tween_property(_audio_player, "volume_db", -80, 3)
+						call_deferred("_stop_audio_after", 3)
+					else:
+						printerr("★★★  Wav не загружен!  ★★★")
+							
 
 			#comic.emit_signal('comic_start')
 		deactivate()
@@ -156,9 +179,24 @@ func activate(event):
 	event_penalty = event.get("penalty",   0)
 	event_stress = event.get("stress",   0)
 	event_bank = event.get("bank",   0)
+	event_quick_sound = event.instanse.get("quick_sound",   "")
+
 
 	glow_image.visible = true
 	activated = true
+	
+	_audio_stream = load("res://assets/sounds/general/got_event.mp3")
+	
+	if _audio_stream:
+		_audio_player.stream = _audio_stream
+		_audio_player.play()
+		
+		var tween = create_tween().set_loops(1)
+		tween.tween_property(_audio_player, "volume_db", 0, 0)
+		tween.tween_property(_audio_player, "volume_db", -80, 3)
+		call_deferred("_stop_audio_after", 3)
+	else:
+		printerr("★★★  Wav не загружен!  ★★★")	
 	
 	Global.add_events(self)
 	#obj_sprt.modulate = Color.RED   
