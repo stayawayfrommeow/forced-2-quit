@@ -185,14 +185,15 @@ func activate(event):
 	glow_image.visible = true
 	activated = true
 	
-	_audio_stream = load("res://assets/sounds/general/got_event.mp3")
+	_audio_stream = load("res://assets/sounds/general/got_event_2.wav")
+	#_audio_stream = load("res://assets/sounds/general/got_event.mp3")
 	
 	if _audio_stream:
 		_audio_player.stream = _audio_stream
 		_audio_player.play()
 		
 		var tween = create_tween().set_loops(1)
-		tween.tween_property(_audio_player, "volume_db", 0, 0)
+		tween.tween_property(_audio_player, "volume_db", -15, 0)
 		tween.tween_property(_audio_player, "volume_db", -80, 3)
 		call_deferred("_stop_audio_after", 3)
 	else:
