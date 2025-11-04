@@ -126,7 +126,7 @@ const events := [
 			"eventTimes": [160, 400],
 			"name": "треееейд",
 			"instanse": event_instanses["trade"]
->
+
 		},
 	],
 	#DAY 2
