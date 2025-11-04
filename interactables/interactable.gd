@@ -105,6 +105,7 @@ func _update_sprite_scale() -> void:
 	if not sprite or not sprite.texture: return
 	var tex_size := Vector2(sprite.texture.get_size())
 	sprite.scale = Vector2.ONE if tex_size == Vector2.ZERO else sprite_size / tex_size
+	# сдвигаем текстуру внутри спрайта (pivot остаётся в центре)
 
 @export var time_left := 0
 

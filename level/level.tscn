@@ -197,9 +197,10 @@ position = Vector2(-84, 391)
 shape = SubResource("RectangleShape2D_vkbyq")
 
 [node name="shark" parent="." instance=ExtResource("28_7cdnq")]
-position = Vector2(4162, 351)
+position = Vector2(4116, 437)
 rotation = 0.010471975
 sprite_size = Vector2(300, 300)
+sprite_offset = Vector2(150, -300)
 sprite_texture = ExtResource("29_lsj08")
 
 [node name="ant" parent="." instance=ExtResource("28_7cdnq")]
