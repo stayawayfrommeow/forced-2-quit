@@ -28,8 +28,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_d0780"]
 resource_name = "pulsing"
-length = 4.0
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,10 +36,10 @@ tracks/0/path = NodePath("Glow:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.0333333, 4),
+"times": PackedFloat32Array(0, 0.53333336, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.46666667), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.2509804), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_hoqj0"]
@@ -70,19 +69,18 @@ _data = {
 
 [node name="Interactable" type="Node2D"]
 script = ExtResource("1_7t3he")
-animation_name = "glow"
-popup_offset = null
+animation_name = ""
 
 [node name="Interact_popup" type="Label" parent="."]
+visible = false
 z_index = 100
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -7.0
-offset_right = 442.0
-offset_bottom = 98.0
+offset_top = -50.0
+offset_right = 480.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.0050871223
@@ -98,7 +96,7 @@ vertical_alignment = 1
 [node name="Glow" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.50980395)
-self_modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0.4421569)
 position = Vector2(2.0000076, -0.9999924)
 scale = Vector2(0.28867525, 0.29658565)
 texture = ExtResource("2_7t3he")

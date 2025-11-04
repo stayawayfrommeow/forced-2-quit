@@ -21,9 +21,9 @@ const event_instanses = {
 		"sound": "res://assets/sounds/comics/comics_1/1.wav",
 		"quick_sound": "res://assets/sounds/events/board.wav"
 	},
-	"mail": {
-		"id": "mail",
-		"name": "проверить почту",
+	"trade": {
+		"id": "trade",
+		"name": "потрейдить",
 		"images": [
 			"res://assets/comics/comics_1/4.png",
 		],
@@ -83,6 +83,7 @@ const event_instanses = {
 	},
 }
 
+
 @export var day_result = {
 	"stress": 0,
 	"income": 0,
@@ -90,88 +91,103 @@ const event_instanses = {
 	"failed": 0
 }
 
+
+
 const events := [
 	#DAY 1
 	[
 		{
 			"group": "cooler",
-			"lifetime": 50,
-			"stress": 5,
-			"bank": 50,
-			"penalty": 2,
-			"eventTimes": [10, 100],
+   			"bank": 5,
+   			"stress": -5,
+  			"penalty": 0,
+			"lifetime": 100,
+			"eventTimes": [1, 120, 240, 360, 480],
 			"name": "попитлз",
 			"instanse": event_instanses["motivate"]
 		},
 		{
-			"group": "board",
-			"lifetime": 50,
+
+			"group": "flower",
+			"bank": 20,
 			"stress": 5,
-			"bank": 50,
-			"penalty": 2,
-			"name": "новости?",
-			"eventTimes": [20, 100],
-			"instanse": event_instanses["board"]
+			"penalty": 5,
+			"lifetime": 120,
+			"eventTimes": [80, 280, 440],
+			"name": "полить бедолагу",
+			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "computer",
-			"lifetime": 50,
-			"stress": 5,
-			"bank": 50,
-			"penalty": 2,
-			"name": "чек почты",
-			"eventTimes": [30, 200],
-			"instanse": event_instanses["mail"]
+			"bank": 150,
+			"stress": 10,
+			"penalty": 20,
+			"lifetime": 150,
+			"eventTimes": [160, 400],
+			"name": "треееейд",
+			"instanse": event_instanses["trade"]
+
 		},
 	],
 	#DAY 2
 	[
 		{
 			"group": "board",
-			"lifetime": 50,
+			"bank": 5,
 			"stress": 5,
-			"bank": 50,
-			"penalty": 2,
-			"name": "Новости??",
-			"eventTimes": [60, 120, 180, 240],
+
+			"penalty": 0,
+			"lifetime": 60,
+			"eventTimes": [20, 80, 140, 220, 280, 340, 420, 480],
+			"name": "Новости?",
+
 			"instanse": event_instanses["board"]
 		},
 		{
 			"group": "cooler",
-			"lifetime": 50,
-			"stress": 10,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 5,
+			"stress": -5,
+			"penalty": 0,
+			"lifetime": 80,
+			"eventTimes": [1, 100, 200, 300, 400, 500],
+
 			"name": "Попить воду",
-			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "computer",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
-			"name": "спааам",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["mail"]
+
+			"bank": 150,
+			"stress": 10,
+			"penalty": 20,
+			"lifetime": 160,
+			"eventTimes": [120, 320],
+			"name": "трейдинг",
+			"instanse": event_instanses["trade"]
+
 		},{
+			
 			"group": "closet",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 150,
+			"stress": 5,
+			"penalty": 10,
+			"lifetime": 180,
+			"eventTimes": [180, 440],
+
 			"name": "протереть",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["polish"]
+			"instanse": event_instanses["nocomics"]
 		},{
 			"group": "flower",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 20,
+			"stress": 5,
+			"penalty": 5,
+			"lifetime": 140,
+			"eventTimes": [60, 260, 380],
+
 			"name": "полить",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 	],
@@ -179,72 +195,82 @@ const events := [
 	[
 		{
 			"group": "board",
-			"lifetime": 50,
+			"bank": 5,
 			"stress": 5,
-			"bank": 50,
-			"penalty": 2,
+
+			"penalty": 0,
+			"lifetime": 60,
+			"eventTimes": [1, 180, 360],
+
 			"name": "Новости???",
-			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
 		},
 		{
 			"group": "cooler",
-			"lifetime": 50,
-			"stress": 10,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 5,
+			"stress": -5,
+			"penalty": 0,
+			"lifetime": 80,
+			"eventTimes": [80, 220, 340, 460],
+
 			"name": "Попить воду",
-			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "computer",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 150,
+			"stress": 10,
+			"penalty": 20,
+			"lifetime": 150,
+			"eventTimes": [160, 400],
+
 			"name": "спааам",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["mail"]
+			"instanse": event_instanses["trade"]
 		},
 		{
 			"group": "closet",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 150,
+			"stress": 5,
+			"penalty": 10,
+			"lifetime": 160,
+			"eventTimes": [200, 440],
 			"name": "протереть",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["polish"]
-		},
-		{
-			"group": "flower",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
-			"name": "полить",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
-			"group": "lift",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+			"group": "flower",
+			"bank": 20,
+			"stress": 5,
+			"penalty": 5,
+			"lifetime": 140,
+			"eventTimes": [120, 320, 480],
+			"name": "полить",
+			"instanse": event_instanses["nocomics"]
+		},
+		{
+			 "group": "lift",
+			"bank": 0,
+			"stress": -15,
+			"penalty": 20,
+			"lifetime": 140,
+			"eventTimes": [140, 380],
+
 			"name": "прошвырнуться",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["walk"]
 		},
 		{
 			"group": "printer",
-			"lifetime": 50,
-			"stress": 20,
 			"bank": 50,
-			"penalty": 2,
+
+			"stress": 5,
+			"penalty": 10,
+			"lifetime": 120,
+			"eventTimes": [100, 300],
+
 			"name": "поксерить",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 	],
@@ -252,196 +278,248 @@ const events := [
 	[
 		{
 			"group": "board",
-			"lifetime": 50,
+			"bank": 5,
 			"stress": 5,
-			"bank": 50,
-			"penalty": 2,
+
+			"penalty": 0,
+			"lifetime": 60,
+			"eventTimes": [1],
+
 			"name": "Новости????",
-			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
 		},
 		{
 			"group": "cooler",
-			"lifetime": 50,
-			"stress": 10,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 5,
+			"stress": -5,
+			"penalty": 0,
+			"lifetime": 70,
+			"eventTimes": [100, 240, 380, 500],
+
 			"name": "Попить воду",
-			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "computer",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
-			"name": "спааам",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["mail"]
+
+			"bank": 150,
+			"stress": 10,
+			"penalty": 20,
+			"lifetime": 140,
+   			"eventTimes": [200, 400],
+			"name": "умомск",
+			"instanse": event_instanses["trade"]
 		},
 		{
 			"group": "closet",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+			"bank": 150,
+			"stress": 5,
+			"penalty": 10,
+			"lifetime": 150,
+			"eventTimes": [260, 480],
+
 			"name": "протереть",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["polish"]
+			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "flower",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 20,
+			"stress": 5,
+			"penalty": 5,
+			"lifetime": 120,
+			"eventTimes": [160, 340, 480],
+
 			"name": "полить",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "lift",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 0,
+			"stress": -15,
+			"penalty": 20,
+			"lifetime": 120,
+			"eventTimes": [180, 420],
+
 			"name": "прошвырнуться",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["walk"]
 		},
 		{
-			"group": "printer",
-			"lifetime": 50,
-			"stress": 20,
+			 "group": "printer",
 			"bank": 50,
-			"penalty": 2,
+
+			"stress": 5,
+			"penalty": 10,
+			"lifetime": 100,
+			"eventTimes": [120, 320],
+
 			"name": "поксерить",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "phone",
-			"lifetime": 50,
-			"stress": 20,
 			"bank": 50,
-			"penalty": 2,
-			"name": "поговорить с другом",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["call"]
+
+			"stress": -5,
+			"penalty": 5,
+			"lifetime": 100,
+			"eventTimes": [140, 280, 460],
+			"name": "ало?",
+			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "boss",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+			"bank": 100,
+			"stress": 10,
+			"penalty": 20,
+			"lifetime": 140,
+			"eventTimes": [220, 440],
+
 			"name": "!%№*?",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
+		},
+		{
+			"group": "planerka",
+			"bank": 100,
+			"stress": 15,
+			"penalty": 30,
+			"lifetime": 120,
+			"eventTimes": [40],
+			"name": "планёр0чка",
+			"instanse": event_instanses["planerka"]
 		},
 	],
 	#DAY 5
 	[
 		{
-			"group": "board",
-			"lifetime": 50,
+			 "group": "board",
+			"bank": 5,
 			"stress": 5,
-			"bank": 50,
-			"penalty": 2,
+
+			"penalty": 0,
+			"lifetime": 50,
+			"eventTimes": [1],
+
 			"name": "Новости?????",
-			"eventTimes": [60, 120, 180, 240],
 			"instanse": event_instanses["board"]
 		},
 		{
 			"group": "cooler",
-			"lifetime": 50,
-			"stress": 10,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 5,
+			"stress": -5,
+			"penalty": 0,
+			"lifetime": 60,
+			"eventTimes": [130, 210, 290, 370, 450, 530],
+
 			"name": "Попить воду",
-			"eventTimes": [30, 90, 150, 210],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "computer",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 150,
+			"stress": 10,
+			"penalty": 20,
+			"lifetime": 80,
+			"eventTimes": [100, 280, 400],
+
 			"name": "спааам",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["mail"]
+			"instanse": event_instanses["trade"]
 		},
 		{
 			"group": "closet",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 150,
+			"stress": 5,
+			"penalty": 10,
+			"lifetime": 80,
+			"eventTimes": [160, 320, 480],
+
 			"name": "протереть",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["polish"]
+			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "flower",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 20,
+			"stress": 5,
+			"penalty": 5,
+			"lifetime": 70,
+			"eventTimes": [110, 190, 270, 350, 430, 510],
+
 			"name": "полить",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "lift",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 0,
+			"stress": -15,
+			"penalty": 20,
+			"lifetime": 70,
+			"eventTimes": [80, 200, 340, 460],
+
 			"name": "прошвырнуться",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["walk"]
 		},
 		{
 			"group": "printer",
-			"lifetime": 50,
-			"stress": 20,
 			"bank": 50,
-			"penalty": 2,
+
+			"stress": 5,
+			"penalty": 10,
+			"lifetime": 70,
+			"eventTimes": [60, 140, 220, 300, 380],
+
 			"name": "поксерить",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "phone",
-			"lifetime": 50,
-			"stress": 20,
 			"bank": 50,
-			"penalty": 2,
-			"name": "поговорить с другом",
-			"eventTimes": [300, 360, 420],
-			"instanse": event_instanses["call"]
+
+			"stress": -5,
+			"penalty": 5,
+			"lifetime": 60,
+			"eventTimes": [90, 170, 250, 330, 410, 490],
+			"name": "ответить на звонок",
+			"instanse": event_instanses["nocomics"]
 		},
 		{
-			"group": "boss",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+			 "group": "boss",
+			"bank": 100,
+			"stress": 10,
+			"penalty": 20,
+			"lifetime": 70,
+			"eventTimes": [120, 240, 360, 440],
+
 			"name": "!%№*?",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["nocomics"]
 		},
 		{
 			"group": "planerka",
-			"lifetime": 50,
-			"stress": 20,
-			"bank": 50,
-			"penalty": 2,
+
+			"bank": 100,
+			"stress": 15,
+			"penalty": 30,
+			"lifetime": 80,
+			"eventTimes": [40, 260],
+
 			"name": "планёр0чка",
-			"eventTimes": [300, 360, 420],
 			"instanse": event_instanses["planerka"]
+		},
+		{
+			"group": "photo",
+			"bank": 5,
+			"stress": -20,
+			"penalty": 0,
+			"lifetime": 60,
+			"eventTimes": [150, 310, 470],
+			"name": "do it for...",
+			"instanse": event_instanses["nocomics"]
 		},
 	]
 ]

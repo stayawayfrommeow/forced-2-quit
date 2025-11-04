@@ -93,14 +93,14 @@ func _ready():
 	else:
 		await get_tree().process_frame
 		_update_sprite_scale()
-	animGlow.play("pulsing_rapid")
+	animGlow.play("pulsing")
 	_update_popup_position()
 	#по умолчанию попапы скрыты
 	interact_popup.visible = false
-
 	_audio_player = AudioStreamPlayer.new()
 	add_child(_audio_player)
 	_audio_player.process_mode = Node.PROCESS_MODE_ALWAYS
+
 	pass # Replace with function body.
 
 func _update_sprite_scale() -> void:
@@ -115,14 +115,7 @@ func _update_sprite_scale() -> void:
 func _process(delta):
 	time_left = activate_timer.time_left
 	pass
-	
-func start_glow() -> void:
-	return
-	animGlow.play(animation_name)
 
-func stop_glow() -> void:
-	return
-	animGlow.stop(animation_name)
 
 @export var popup_offset: Vector2 = Vector2(0, -50):  # смещение вверх на 50 px
 	set(v):
@@ -209,7 +202,6 @@ func deactivate():
 	interact_popup.visible = false
 	activate_timer.stop()
 	glow_image.visible = false
-	stop_glow()
 	Global.delete_events(self)
 	
 func _on_area_2d_body_entered(body):
