@@ -134,6 +134,7 @@ func _input(event: InputEvent):
 		if (stress):
 			Global.stress = event_stress
 			Global.bank = event_bank
+			Global.day_result["done"] += 1
 			
 			if (event_images and event_sound and !Global.has_readed_comics(event_id)):
 				Spawner.show_slider(event_images, event_sound)
@@ -198,6 +199,7 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_timer_timeout() -> void:
 	Global.stress = event_penalty
 	SharksSpawner.create_head()
+	Global.day_result["failed"] += 1
 	deactivate()
 
 func _on_comic_comic_ended():

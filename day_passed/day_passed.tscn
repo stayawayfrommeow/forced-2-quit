@@ -1,22 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkfktn72s0nei"]
+[gd_scene load_steps=4 format=3 uid="uid://bkfktn72s0nei"]
 
 [ext_resource type="Script" uid="uid://c3k04ehrsdq42" path="res://day_passed/day_passed.gd" id="1_e3g78"]
+[ext_resource type="Texture2D" uid="uid://borcwywkvu557" path="res://assets/next_days/0.png" id="2_38xsx"]
+[ext_resource type="Script" uid="uid://bhl405nxsh6uk" path="res://day_passed/sprite.gd" id="2_gpeb1"]
 
 [node name="DayPassed" type="Node2D"]
 script = ExtResource("1_e3g78")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.00417201, 0.0048702164, 0.0013869648, 0.70980394)
+
+[node name="Sprite" type="Sprite2D" parent="ColorRect"]
+position = Vector2(409, 310.00003)
+scale = Vector2(0.88306457, 0.8030676)
+texture = ExtResource("2_38xsx")
+script = ExtResource("2_gpeb1")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 800.0
+offset_top = 143.0
+offset_right = 1074.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 40
+text = "ИТОГИ ДНЯ"
+
+[node name="QuestDone" type="Label" parent="."]
+offset_left = 769.0
+offset_top = 224.0
+offset_right = 1059.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 27
+text = "Заданий выполнено: 5"
+
+[node name="QuestFailed" type="Label" parent="."]
+offset_left = 770.0
+offset_top = 269.0
+offset_right = 1099.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 27
+text = "Заданий провалено: 5"
+
+[node name="Income" type="Label" parent="."]
+offset_left = 772.0
+offset_top = 313.0
+offset_right = 1096.0
+offset_bottom = 374.0
+theme_override_font_sizes/font_size = 27
+text = "заработная плата: 2332
+"
+
+[node name="Stress" type="Label" parent="."]
+offset_left = 774.0
+offset_top = 362.0
+offset_right = 1068.0
+offset_bottom = 423.0
+theme_override_font_sizes/font_size = 27
+text = "Итоговыый стресс: 100
+"
+
 [node name="Label" type="Label" parent="."]
-offset_left = 103.0
-offset_top = 40.0
-offset_right = 206.0
-offset_bottom = 89.0
-text = "gj."
+offset_right = 40.0
+offset_bottom = 17.0
 
-[node name="Button" type="Button" parent="."]
-offset_left = 103.0
-offset_top = 83.0
-offset_right = 166.0
-offset_bottom = 127.0
-text = "next"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Next" type="Label" parent="."]
+offset_left = 374.0
+offset_top = 585.0
+offset_right = 799.0
+offset_bottom = 646.0
+theme_override_font_sizes/font_size = 23
+text = "Поставить будильник на завтра
+\"space\" "
+horizontal_alignment = 1

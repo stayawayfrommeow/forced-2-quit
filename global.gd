@@ -4,6 +4,7 @@ signal upd_stress(val)
 signal upd_bank(val)
 signal upd_day(val)
 signal upd_current_event(val)
+signal final_day_report(done, failed, income, stress)
 
 var letter_scn = preload("res://starting_letter/starting_letter.tscn")
 var stressbar = "res://stressbar/stressbar.tscn"
@@ -73,6 +74,13 @@ const event_instanses = {
 		"images": [
 		],
 	},
+}
+
+@export var day_result = {
+	"stress": 0,
+	"income": 0,
+	"done": 0,
+	"failed": 0
 }
 
 const events := [
@@ -444,6 +452,7 @@ var MAX_STRESS = 100
 		if new_value > MAX_STRESS:
 			end_the_game()
 		stress = new_value
+		day_result["stress"] += delta
 		emit_signal('upd_stress', new_value)
 		
 @export var bank = 0:
@@ -451,6 +460,7 @@ var MAX_STRESS = 100
 		var old_value = stress
 		var new_value = old_value + delta
 		bank = new_value
+		day_result["income"] += delta
 		emit_signal('upd_bank', new_value)
 	get:
 		return bank
@@ -516,11 +526,15 @@ func start_next_day():
 	stress = -stress
 	day += 1
 	
-	print(day)
 	emit_signal('upd_day', day)
 	current_events = []
 
 	get_tree().change_scene_to_file("res://level/level.tscn")
+	
+	day_result["stress"] = 0
+	day_result["income"] = 0
+	day_result["done"] = 0
+	day_result["failed"] = 0
 
 func end_current_day():
 	get_tree().change_scene_to_file("res://day_passed/day_passed.tscn")
