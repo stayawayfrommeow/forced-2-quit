@@ -5,6 +5,7 @@ extends Node2D
 @onready var income_label = $Income
 @onready var done_label = $QuestDone
 @onready var failed_label = $QuestFailed
+@onready var input_block_timer = $InputBlockTimer  # Timer для блокировки ввода
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,6 +14,8 @@ func _ready():
 	income_label.text = "Заработная плата: " + str(Global.day_result["income"]) + "$"
 	failed_label.text = "Заданий провалено: " + str(Global.day_result["failed"])
 	done_label.text = "Заданий выполнено: " + str(Global.day_result["done"])
+	
+	input_block_timer.start(0.5)
 	pass  # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,6 +23,9 @@ func _process(delta):
 	pass
 
 func _input(event: InputEvent) -> void:
+	if input_block_timer.time_left > 0:
+		return
+	
 	# Отловить нажатие на клавишу "space"
 	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
 		Global.start_next_day()

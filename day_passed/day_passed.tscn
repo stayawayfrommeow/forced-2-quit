@@ -73,3 +73,6 @@ theme_override_font_sizes/font_size = 23
 text = "Поставить будильник на завтра
 \"space\" "
 horizontal_alignment = 1
+
+[node name="InputBlockTimer" type="Timer" parent="."]
+one_shot = true
